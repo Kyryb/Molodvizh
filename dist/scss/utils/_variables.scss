@@ -1,0 +1,12 @@
+$heading-ff: 'Bryndan Unifont', sans-serif;
+$secondary-ff: 'Work Sans', sans-serif;
+$black-base: #000;
+$white-base: #fff;
+$primary-red: #f44861;
+$light-blue: #0ff;
+$container-1600: 108px;
+$content-w-1600: calc(100vw - ($container-1600*2));
+$container-1280: 86px;
+$container-768: 56px;
+$container-breakpoint: 1600 + 108 * 2;
+$content-w-max: 1600px;

@@ -1,0 +1,40 @@
+.nav {
+  height: 344px;
+  padding-top: 134px;
+  background-image: url(../../../assets/images/header/nav-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include rwd-min($container-breakpoint) {
+    background-position: bottom;
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    max-width: $content-w-max;
+    padding: 0 calc(2 * $container-1600);
+    justify-content: space-between;
+    align-items: center;
+
+    @include rwd-min($container-breakpoint) {
+      margin: 0 auto;
+    }
+
+    @include rwd-max(1439) {
+      padding: 0 calc(2 * $container-1280);
+    }
+
+    @include rwd-max(1279) {
+      padding: 0 calc(2 * $container-1280);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    @extend %h4-font-styles;
+    color: $white-base;
+    text-decoration: none;
+  }
+}

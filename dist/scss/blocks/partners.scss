@@ -1,0 +1,36 @@
+.partners {
+  &__title {
+    @extend %h4-font-styles;
+    color: $black-base;
+    width: fit-content;
+    margin: 0 auto 64px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 48px;
+    }
+
+    @include rwd-max(1280) {
+      margin-bottom: 24px;
+    }
+  }
+
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 214px;
+    height: 214px;
+
+    &-logo {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@mixin rwd-max($px) {
+  $min-width: #{$px}px;
+  @media screen and (max-width: $min-width) {@content}
+}
+
+@mixin rwd-min($px) {
+  $min-width: #{$px}px;
+  @media screen and (min-width: $min-width) {@content}
+}
+
+@mixin rwd-min-h($px) {
+  $min-width: #{$px}px;
+  @media screen and (min-height: $min-width) {@content}
+}
+
+@mixin img-grid-height($screen, $grid-columns, $grid-gap, $container-mg, $grid-span, $height-ratio) {
+  height: calc((($screen - 2 * $container-mg - $grid-gap * ($grid-columns - 1)) / $grid-columns * $grid-span + ($grid-gap * ($grid-span - 1))) * $height-ratio);
+}
+
+@mixin event-img-h-w-calc($content-w, $container-mg, $ratio-w, $ratio-h) {
+  width: calc(($content-w - ($container-mg * 2)) * $ratio-w);
+  height: calc(($content-w - ($container-mg * 2)) * $ratio-w * $ratio-h);
+}
+
+@mixin event-aim-h-calc($content-w, $container-mg, $ratio-w, $ratio-h, $desc-position-ratio) {
+  height: calc(($content-w - ($container-mg * 2)) * $ratio-w * $ratio-h * $desc-position-ratio);
+}
+
+
+@function h-calc($content-w, $container-mg, $ratio-w, $ratio-h) {
+  @return calc(($content-w - ($container-mg * 2)) * $ratio-w * $ratio-h);
+}
+
+@function w-calc($content-w, $container-mg, $ratio-w) {
+  @return calc(($content-w - ($container-mg * 2)) * $ratio-w);
+}
+
+@function half-grid-h($content-base, $container-mg, $grid-gap, $height-ratio) {
+  @return calc(($content-base - ($container-mg * 2) - $grid-gap) / 2 * $height-ratio);
+}
+
+@function grid-item-h($content-base, $container-mg, $grid-gap, $height-ratio, $columns-num) {
+  @return calc(($content-base - ($container-mg * 2) - ($grid-gap * ($columns-num - 1))) / $columns-num * $height-ratio);
+}
+
+@function half-grid-w($content-base, $container-mg, $grid-gap) {
+  @return calc(($content-base - ($container-mg * 2) - $grid-gap) / 2);
+}
+
+@function grid-item-w($content-base, $container-mg, $grid-gap, $columns-num) {
+  @return calc(($content-base - ($container-mg * 2) - ($grid-gap * ($columns-num - 1))) / $columns-num);
+}

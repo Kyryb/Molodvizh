@@ -1,0 +1,312 @@
+.wide-card {
+  position: relative;
+
+  &__content {
+    @extend %grid-12-auto;
+    position: relative;
+  }
+
+  &__pseudo-wrapper {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__img {
+    width: inherit;
+    height: inherit;
+
+    &-container {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__desc {
+    display: flex ;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+
+    &-content {
+      @extend %body1-font-styles;
+      color: $black-base;
+    }
+  }
+
+  &__arrow-caption {
+    @extend %h4-font-styles;
+    color: $black-base;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.3;
+    position: absolute;
+    bottom: -25.5%;
+    right: -2%;
+    transform: translateY(100%) rotate(-15deg);
+  }
+
+  &--v1 {
+    .wide-card {
+
+      &__content {
+        height: grid-item-h(100vw, $container-1600, 32px, 0.8, 2);
+        max-height: grid-item-h($content-w-max, 0px, 32px, 0.8, 2);
+
+        @include rwd-max(1439) {
+          height: grid-item-h(100vw, $container-1280, 32px, 0.8, 2);
+        }
+
+        @include rwd-max(1279) {
+          height: grid-item-h(100vw, $container-768, 32px, 0.8, 2);
+        }
+      }
+
+      &__title {
+        position: absolute;
+        top: 15%;
+        right: 10.5%;
+        transform: rotate(-4deg);
+
+          h3 {  
+          @extend %h3-font-styles;
+          color: $primary-red;
+          text-align: center;
+        }
+      }
+
+      &__pseudo-wrapper {
+        grid-column: 1 / 7;
+        height: 84%;
+        top: 13%;
+        left: 2%;
+      }
+
+      &__img {
+        transform: rotate(177.5deg);
+      }
+
+      &__desc {
+        grid-column: 6 / 13;
+      }
+    }
+  }
+
+  &--v1-desc-cut {
+
+    .wide-card {
+      &__desc {
+        background-image: url(../../../assets/images/wide-card/v1-bg-cut.png);
+        align-items: flex-end;
+        height: 39%;
+        bottom: 7.5%;
+
+        &-content {
+          padding-left: 6%;
+          padding-bottom: 4.8%;
+          max-width: 90%;
+        }
+      }
+    }
+  }
+
+  &--v2 {
+    .wide-card {
+      &__content {
+        height: h-calc(100vw, $container-1600, 1, 0.406);
+        max-height: h-calc($content-w-max, 0px, 1, 0.406);
+
+        @include rwd-max(1439) {
+          height: h-calc(100vw, $container-1280, 1, 0.406);
+        }
+
+        @include rwd-max(1279) {
+          height: h-calc(100vw, $container-768, 1, 0.406);
+        }
+      }
+
+      &__title {
+        position: absolute;
+        top: 10%;
+        left: 9%;
+        transform: rotate(2deg);
+
+          h3 {  
+          @extend %h3-font-styles;
+          color: $primary-red;
+          text-align: center;
+        }
+      }
+
+      &__pseudo-wrapper {
+        grid-column: 7 / 13;
+        height: 80.5%;
+        top: 9%;
+        right: 2%;
+      }
+
+      &__img {
+        transform: rotate(2.7deg);
+      }
+
+      &__desc {
+        grid-column: 1 / 8;
+        background-image: url(../../../assets/images/wide-card/v2-bg.png);
+        height: 68%;
+        bottom: 4%;
+        align-items: center;
+
+        &-content {
+          // padding-bottom: 11%;
+          padding-left: 8.5%;
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v2-desc-cut {
+    .wide-card {
+      &__desc {
+        background-image: url(../../../assets/images/wide-card/v2-bg-cut.png);
+        // align-items: center;
+        height: 47%;
+        bottom: 25%;
+
+        &-content {
+          padding-left: 10%;
+          // padding-bottom: unset;
+          max-width: 95%;
+        }
+      }
+
+      &__title {
+        top: 4%;
+      }
+    }
+  }
+
+  &--right-tape-L {
+    .wide-card__pseudo-wrapper::after {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/utils/ductTape.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 31%;
+      padding-bottom: 12%;
+      position: absolute;
+      right: -6%;
+      top: -3%;
+      z-index: 2;
+      transform: rotate(30deg);
+    }
+  }
+
+  &--right-tape-S {
+    .wide-card__pseudo-wrapper::after {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/utils/ductTape.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 16%;
+      padding-bottom: 6%;
+      position: absolute;
+      right: -4%;
+      top: -6%;
+      z-index: 2;
+      transform: rotate(-75deg);
+    }
+  }
+
+  &--left-tape-S {
+    .wide-card__pseudo-wrapper::before {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/utils/ductTape.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 16%;
+      padding-bottom: 6%;
+      position: absolute;
+      left: -3.5%;
+      bottom: -4%;
+      z-index: 2;
+      transform: rotate(-135deg);
+    }
+  }
+
+  &--scribble{
+    .wide-card__img-container::after {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/utils/scribble-35.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 33%;
+      padding-bottom: 40%;
+      position: absolute;
+      left: -18%;
+      top: -15%;
+      z-index: 2;
+    }
+  }
+
+  &--red-bg {
+    .wide-card__img-container::before {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/wide-card/red-bg.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 106.5%;
+      padding-bottom: 83%;
+      position:absolute;
+      top: -11%;
+      right: -2%;
+      z-index: -1;
+    }
+  }
+
+  &--masking-tape {
+    .wide-card__pseudo-wrapper::after {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/utils/maskingTape.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 43.5%;
+      padding-bottom: 12%;
+      position: absolute;
+      right: 15%;
+      top: -10%;
+      z-index: 2;
+    }
+  }
+
+  &--arrow-caption {
+    .wide-card__img-container::after {
+      display: block;
+      content: "";
+      background-image: url(../../../assets/images/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 16%;
+      padding-bottom: 8.5%;
+      position: absolute;
+      top: calc(100% + 7.5%);
+      right: 32.5%;
+      transform: rotate(131deg);
+    }
+  }
+}

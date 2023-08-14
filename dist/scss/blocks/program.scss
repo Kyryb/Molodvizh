@@ -1,0 +1,50 @@
+.program {
+  &__top {
+    padding: 32px 0 82px;
+    width: 100%;
+    margin-bottom: 132px;
+    background-image: url(../../../assets/images/program/black-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include rwd-max(1599) {
+      background-size: contain;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    &-subtitle {
+      @extend %h4-font-styles;
+      transform: rotate(-10deg);
+      opacity: 0.6;
+      color: $white-base;
+      width: fit-content;
+    }
+
+    &-title{
+      @extend %h2-font-styles;
+      color: $white-base;
+      width: fit-content;
+    }
+  }
+
+  &__event {
+    margin-bottom: 64px;
+  }
+
+  &__swiper {
+    .swiper-wrapper {
+      margin-bottom: 48px;
+
+      @include rwd-max(1439) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

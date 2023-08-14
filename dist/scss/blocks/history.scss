@@ -1,0 +1,38 @@
+.history {
+  &__title {
+    @extend %h2-font-styles;
+    color: $black-base;
+    width: fit-content;
+    transform: rotate(-4deg);
+    margin-bottom: 74px;
+  }
+  
+  &__subtitle {
+    @extend %h4-font-styles;
+    color: $black-base;
+    opacity: 0.7;
+    transform: rotate(4deg);
+    width: fit-content;
+    margin: 0 auto 36px;
+  }
+
+  &__wide-card {
+    margin-bottom: 100px;
+  }
+
+  &__wide-card--arrow-caption {
+    margin-bottom: 230px;
+
+    @include rwd-max(1599) {
+      margin-bottom: 208px;
+    }
+
+    @include rwd-max(1439) {
+      margin-bottom: 180px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 160px;
+    }
+  }
+}

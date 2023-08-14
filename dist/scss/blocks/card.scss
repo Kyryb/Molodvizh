@@ -1,0 +1,939 @@
+.card {
+  width: fit-content;
+
+  &__content {
+    position: relative;
+    width: half-grid-w(100vw, $container-1600, 32px);
+    max-width: half-grid-w(1600px, 0px, 32px);
+
+    @include rwd-max(1439) {
+      width: half-grid-w(100vw, $container-1280, 32px);
+    }
+    @include rwd-max(1279) {
+      width: half-grid-w(100vw, $container-768, 32px);
+    }
+  }
+
+  &__pseudo-holder {
+    width: fit-content;
+    position: relative;
+
+    &::before {
+      display: none;
+      height: auto;
+      content: "";
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      z-index: 1;
+    }
+
+    &::after {
+      display: none;
+      height: auto;
+      content: "";
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: cover;
+
+    &-wrapper {
+      display: block;
+      width: fit-content;
+
+      &::before {
+        display: block;
+        height: auto;
+        content: "";
+        background-image: url("../../../assets/images/card/paper-clip.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        z-index: 2;
+      }
+
+      &::after {
+        display: block;
+        height: auto;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__desc {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+
+    &-content {
+      overflow: hidden;
+    }
+
+    &-title {
+      @extend %h5-font-styles;
+      color: $black-base;
+      margin-bottom: 16px;
+      overflow: hidden;
+
+      @include rwd-max(1599) {
+        margin-bottom: 12px;
+      }
+
+      @include rwd-max(1279) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-timing {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 12px;
+
+      @include rwd-max(1439) {
+        gap: 16px;
+      }
+
+      @include rwd-max(1279) {
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+    }
+
+    &-details {
+      @extend %h6-font-styles;
+      color: $black-base;
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: hidden;
+      }
+    }
+
+    &-about {
+      @extend %body2-font-styles;
+      color: $black-base;
+    }
+  }
+
+  &--v1 {
+    // transform: translate(2%, 6%);
+    .card {
+
+      &__content {
+        padding: 16% 0 0 4%;
+        height: half-grid-h(100vw, $container-1600, 32px, 1.07);
+        max-height: half-grid-h(1600px, 0px, 32px, 1.07);
+        
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 1.07);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 1.07);
+        }
+        // background-image: url(../../../assets/images/card/torn-paper-edges.png);
+        // background-repeat: no-repeat;
+        // background-size: cover;
+      }
+
+      &__pseudo-holder {
+        &::after {
+          display: block;
+          background-image: url(../../../assets/images/card/packing-tape-5.png);
+          width: 15%;
+          padding-bottom: 44%;
+          right: 0;
+          top: -32%;
+          transform: rotate(-45deg);
+        }
+
+        &::before {
+          display: block;
+          background-image: url(../../../assets/images/card/torn-paper-edges.png);
+          width: 100%;
+          padding-bottom: 64%;
+          left: 0;
+          bottom: 0;
+          transform: rotate(-8.228deg);
+        }
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.4, 0.65);
+        max-width: calc(1600px * 0.4);
+        max-height: calc(1600px * 0.4 * 0.65);
+        transform: rotate(-8.228deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.4, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
+        }
+
+        &-wrapper {
+          &::before {
+            width: 8%;
+            padding-bottom: 19%;
+            bottom: 0;
+            left: 5%;
+            transform: rotate(-135deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-10.png);
+            width: 12%;
+            padding-bottom: 28%;
+            bottom: -5%;
+            left: 2%;
+            transform: rotate(-40deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v1-bg.png);
+        width: 82%;
+        height: 50%;
+        transform: rotate(-7.223deg);
+        // left: 6%;
+        // bottom: -70%;
+        left: 8%;
+        bottom: 8%;
+
+        &-content {
+          // max-height: h-calc(100vw, $container-1600, 0.4, 0.468);
+          max-height: 60%;
+          padding-left: 10%;
+          position: relative;
+          top: 14%;
+          transform: rotate(5deg);
+
+          // @include rwd-min($container-breakpoint) {
+          //   max-height: h-calc(1600px, 0px, 0.4, 0.4);
+          // }
+        }
+
+        &-details-wrapper {
+          max-width: 90%;
+        }
+
+        &-title {
+          max-width: 60%;
+        }
+
+        &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v2 {
+
+    .card {
+
+      &__content {
+        height: half-grid-h(100vw, $container-1600, 32px, 0.965);
+        max-height: half-grid-h(1600px, 0px, 32px, 0.965);
+        padding-top: 4%;
+        padding-left: 8%;
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.965);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.965);
+        }
+      }
+
+      &__pseudo-holder {
+        &::before {
+          display: block;
+          background-image: url(../../../assets/images/card/v2-mask.png);
+          width: 100%;
+          height: 132%;
+          left: -10%;
+          top: 2%;
+          z-index: 0;
+        }
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.4, 0.65);
+        max-width: calc(1600px *.4);
+        max-height: calc(1600px *.4 *.65);
+        transform: rotate(1deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.4, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
+        }
+
+        &-wrapper {
+          &::before {
+            width: 8%;
+            padding-bottom: 20%;
+            right: 2%;
+            bottom: -18%;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-5.png);
+            width: 14%;
+            height: 66%;
+            top: -16%;
+            left: -6%;
+            transform: rotate(60deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v2-bg.png);
+        width: 82%;
+        height: 50%;
+        right: 0;
+        bottom: 0;
+
+        &-content {
+          position: relative;
+          top: 14%;
+          padding-left: 7%;
+          transform: rotate(-1.927deg);
+          max-height: 68%;
+        }
+
+        &-title, &-details-wrapper {
+          max-width: 75%;
+        }
+
+        &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v3 {
+
+    .card {
+      &__content {
+        display: flex;
+        flex-direction: column;
+        height: half-grid-h(100vw, $container-1600, 32px, 1);
+        max-height: half-grid-h($content-w-max, 0px, 32px, 1);
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 1);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 1);
+        }
+      }
+
+      &__pseudo-holder {
+        width: 81%;
+        height: 53%;
+        margin-left: 4%;
+        margin-top: 8%;
+
+        &::before {
+          display: block;
+          background-image: url(../../../assets/images/card/bg-red.png);
+          width: 107.5%;
+          padding-bottom: 68%;
+          top: 8.5%;
+          left: -5%;
+          z-index: 0;
+        }
+      }
+
+      &__img {
+        width: inherit;
+        height: inherit;
+        transform: rotate(6.45deg);
+
+        &-wrapper {
+          width: 100%;
+          height: 100%;
+
+          &::before {
+            width: 8%;
+            padding-bottom: 20.5%;
+            bottom: 0;
+            right: -2%;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-5.png);
+            width: 10%;
+            padding-bottom: 29%;
+            top: 0;
+            right: -3%;
+            transform: rotate(75deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v3-bg.png);
+        width: 82%;
+        height: 62%;
+        left: 16.5%;
+        bottom: 0;
+
+        &-content {
+          position: relative;
+          top: 21%;
+          padding-left: 5%;
+          max-height: 53%;
+        }
+
+        &-title {
+          max-width: 54%;
+        }
+
+        &-details-wrapper, &-about {
+          max-width: 95%;
+        }
+      }
+
+    }
+  }
+
+  &--v4 {
+
+    .card {
+
+      &__content {
+        display: flex;
+        align-items: flex-end;
+        height: half-grid-h(100vw, $container-1600, 32px, 0.893);
+        max-height: half-grid-h($content-w-max, 0px, 32px, 0.893);
+        padding-left: 4%;
+        padding-bottom: 6%;
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.893);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.893);
+        }
+
+        // @include rwd-max(1279) {
+        //   height: h-calc(100vw, $container-768, 1, 0.893);
+        //   max-width: none;
+        //   max-height: none;
+        // }
+      }
+
+      &__pseudo-holder::before {
+        display: block;
+        background-image: url(../../../assets/images/card/bg-yellow.png);
+        width: 102%;
+        height: 88%;
+        left: -3%;
+        bottom: -7%;
+        z-index: -1;
+        transform: rotate(-2.644deg);
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.4, 0.65);
+        max-width: calc(1600px * .4);
+        max-height: calc(1600px * .4 * .65);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.4, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
+        }
+
+        // @include rwd-max(1279) {
+        //   @include event-img-h-w-calc(100vw, $container-768, 0.8, 0.65);
+        // }
+
+        &-wrapper {
+          &::before {
+            width: 8%;
+            padding-bottom: 19%;
+            right: 0;
+            top: 14%;
+            transform: rotate(120deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-10.png);
+            width: 12%;
+            padding-bottom: 28%;
+            left: 0;
+            bottom: -21%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v2-bg.png);
+        width: 82%;
+        height: 54%;
+        top: 0;
+        right: 0;
+
+        &-content {
+          max-height: 68%;
+          position: relative;
+          top: 16%;
+          padding-left: 8%;
+        }
+
+        &-title, &-details-wrapper{
+          max-width: 90%;
+        }
+
+        &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v5 {
+    .card {
+      &__content {
+        display: flex;
+        align-items: flex-end;
+        height: half-grid-h(100vw, $container-1600, 32px, 0.923);
+        max-height: half-grid-h(1600px, 0px, 32px, 0.923);
+        padding-bottom: 2%;
+        padding-left: 1%;
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.923);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.923);
+        }
+      }
+      &__pseudo-holder {
+        // width: 80%;
+        // height: 57%;
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.4, 0.65);
+        max-width: calc($content-w-max * .4);
+        max-height: calc($content-w-max * .4 * .65);
+        transform: rotate(-2.891deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.4, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
+        }
+        // width: 100%;
+        // height: 100%;
+
+        &-wrapper {
+          &::before {
+            width: 6.5%;
+            padding-bottom: 16%;
+            top: 4%;
+            left: 24%;
+            transform: rotate(-30.5deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-10.png);
+            width: 12%;
+            padding-bottom: 28%;
+            right: -1%;
+            top: 2%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v5-bg.png);
+        width: 82%;
+        height: 52%;
+        right: 0;
+        top: 0;
+
+        &-content {
+          position: relative;
+          top: 16%;
+          padding-left: 7.5%;
+          max-height: 68%;
+        }
+
+        &-title, &-details-wrapper {
+          max-width: 90%;
+        }
+
+        &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v6 {
+    .card {
+      &__content {
+        display: flex;
+        align-items: flex-end;
+        height: half-grid-h(100vw, $container-1600, 32px, 0.993);
+        max-height: half-grid-h($content-w-max, 0px, 32px, 0.993);
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.993);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.993);
+        }
+        // padding-left: 2%;
+        // padding-bottom: 4%;
+      }
+
+      &__pseudo-holder {
+        width: 72.5%;
+        height: 48%;
+        margin-bottom: 4%;
+        margin-left: 10.5%;
+      }
+  
+      &__img {
+        width: inherit;
+        height: inherit;
+        // @include event-img-h-w-calc(100vw, $container-1600, 0.354, 0.65);
+        // max-width: calc($content-w-max *.354);
+        // max-height: calc($content-w-max *.354 *.65);
+        transform: rotate(-6deg);
+
+        &-wrapper {
+          width: 100%;
+          height: 100%;
+
+          &::before {
+            width: 7%;
+            padding-bottom: 18%;
+            right: 3%;
+            top: 6%;
+            transform: rotate(120deg);
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v6-bg.png);
+        width: 100%;
+        height: 72.5%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &-content {
+          position: relative;
+          top: 16%;
+          left: 19%;
+          max-height: 45%;
+          transform: rotate(-1.33deg);
+        }
+
+        &-title {
+          max-width: 70%;
+        }
+
+        &-details-wrapper, &-about {
+          max-width: 75%;
+        }
+      }
+    }
+  }
+
+  &--v7 {
+    .card {
+      &__content {
+        padding-left: 3%;
+        padding-top: 11%;
+        height: half-grid-h(100vw, $container-1600, 32px, 0.958);
+        max-height: half-grid-h(1600px, 0px, 32px, 0.958);
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.958);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.958);
+        }
+      }
+
+      &__pseudo-holder::after {
+        display: block;
+        background-image: url(../../../assets/images/card/packing-tape-10.png);
+        width: 12%;
+        padding-bottom: 30%;
+        right: 2%;
+        top: -22%;
+        transform: rotate(-45deg);
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.35, 0.65);
+        max-width: calc(1600px *.35);
+        max-height: calc(1600px *.35 *.65);
+        transform: rotate(-6deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.35, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.35, 0.65);
+        }
+
+        &-wrapper {
+          &::before, &::after {
+            width: 6%;
+            padding-bottom: 15%;
+          }
+
+          &::before {
+            bottom: 18%;
+            left: 1%;
+            transform: rotate(-45deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/paper-clip.png);
+            bottom: 10%;
+            right: -2%;
+            transform: rotate(30deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v7-bg.png);
+        width: 100%;
+        height: 64%;
+        left: 0;
+        bottom: 0;
+
+        &-content {
+          position: relative;
+          top: 22%;
+          padding-left: 5%;
+          max-height: 52%;
+          transform: rotate(-1.3deg);
+        }
+
+        &-title {
+          max-width: 55%;
+        }
+
+        &-details-wrapper, &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v8 {
+    .card {
+
+      &__content {
+        height: half-grid-h(100vw, $container-1600, 32px, 1.022);
+        max-height: half-grid-h(1600px, 0px, 32px, 1.022);
+        padding-left: 9%;
+        padding-top: 5%;
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 1.022);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 1.022);
+        }
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.42, 0.65);
+        max-width: calc(1600px *.42);
+        max-height: calc(1600px *.42 *.65);
+        transform: rotate(-6deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.42, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.42, 0.65);
+        }
+
+        &-wrapper {
+          &::before {
+            width: 6%;
+            padding-bottom: 15%;
+            bottom: 10%;
+            left: 4%;
+            transform: rotate(-75deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-10.png);
+            width: 11%;
+            padding-bottom: 26%;
+            right: 4%;
+            bottom: 5%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v8-bg.png);
+        width: 86%;
+        height: 54%;
+        left: 0;
+        bottom: 6%;
+        transform: rotate(-7.22deg);
+
+        &-content {
+          position: relative;
+          top: 19%;
+          padding-left: 12%;
+          transform: rotate(5deg);
+          max-height: 60%;
+        }
+
+        &-title {
+          max-width: 70%;
+        }
+
+        &-details-wrapper {
+          max-width: 80%;
+        }
+
+        &-about {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &--v9 {
+    .card {
+
+      &__content {
+        padding: 6% 0 0 4%;
+        height: half-grid-h(100vw, $container-1600, 32px, 0.992);
+        max-height: half-grid-h(1600px, 0px, 32px, 0.992);
+
+        @include rwd-max(1439) {
+          height: half-grid-h(100vw, $container-1280, 32px, 0.992);
+        }
+
+        @include rwd-max(1279) {
+          height: half-grid-h(100vw, $container-768, 32px, 0.992);
+        }
+      }
+
+      &__img {
+        @include event-img-h-w-calc(100vw, $container-1600, 0.35, 0.65);
+        max-width: calc($content-w-max*.35);
+        max-height: calc($content-w-max*.35 *.65);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.35, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.35, 0.65);
+        }
+
+        &-wrapper {
+          &::before {
+            width: 7%;
+            padding-bottom: 18%;
+            right: -1%;
+            bottom: -2%;
+            transform: rotate(75deg);
+          }
+
+          &::after {
+            background-image: url(../../../assets/images/card/packing-tape-10.png);
+            width: 12%;
+            padding-bottom: 30%;
+            left: -6%;
+            top: 30%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/card/v9-bg.png);
+        width: 100%;
+        height: 58%;
+        left: 0;
+        bottom: 12%;
+
+        &-content {
+          position: relative;
+          top: 31%;
+          padding-left: 3.5%;
+          max-height: 56%;
+        }
+
+        &-title {
+          max-width: 68%;
+        }
+
+        &-details-wrapper, &-about {
+          max-width: 90%;
+        }
+      }
+    }
+  }
+}

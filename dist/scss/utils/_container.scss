@@ -1,0 +1,16 @@
+.container {
+  margin: 0 $container-1600;
+  max-width: $content-w-max;
+
+  @include rwd-min($container-breakpoint) {
+    margin: 0 auto;
+  }
+
+  @include rwd-max(1439) {
+    margin: 0 $container-1280;
+  }
+
+  @include rwd-max(1279) {
+    margin: 0 $container-768;
+  }
+}

@@ -1,0 +1,27 @@
+.btn {
+  display: block;
+  padding: 18px 58px;
+  font: 400 24px/130% $secondary-ff;
+  color: $white-base;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: $primary-red;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.20);
+  max-width: 330px;
+  text-align: center;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    background-color: #21201F;
+  }
+
+  @include rwd-max(1439) {
+    font-size: 20px;
+    padding: 18px 48px;
+  }
+
+  @include rwd-max(1279) {
+    padding: 14px 36px;
+    font-size: 18px;
+  }
+}

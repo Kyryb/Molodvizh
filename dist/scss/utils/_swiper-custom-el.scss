@@ -1,0 +1,76 @@
+.bullet-custom {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: $black-base;
+  opacity: 0.5;
+
+  @include rwd-max(1439) {
+    width: 14px;
+    height: 14px;
+  }
+
+  @include rwd-max(1279) {
+    width: 10px;
+    height: 10px;
+  }
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+.pagination-custom {
+  width: fit-content !important;
+  margin: 0 auto 40px;
+  height: 18px;
+  position: static !important;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+
+  @include rwd-max(1439) {
+    gap: 28px;
+  }
+
+  @include rwd-max(1279) {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    width: 187px;
+    height: 96px;
+    opacity: 0.6;
+    background-image: url(../../../assets/images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: calc(100% + 106px);
+    transform: rotate(-157deg) translateY(-50%);
+
+
+    @include rwd-max(1439) {
+      width: 148px;
+      height: 78px;
+    }
+
+    @include rwd-max(1279) {
+      width: 128px;
+      height: 56px;
+    }
+  }
+}
+
+.swiper-custom-hint {
+  @extend %h4-font-styles;
+  color: $black-base;
+  opacity: 0.3;
+  font-weight: bold;
+  text-align: center;
+}

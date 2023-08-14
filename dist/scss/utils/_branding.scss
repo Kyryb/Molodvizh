@@ -1,0 +1,22 @@
+.brand {
+  &__container {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  &__logo {
+    display: block;
+    object-fit: cover;
+
+    &--mldv {
+      width: 114px;
+      height: 114px;
+    }
+
+    &--tvori {
+      width: 204px;
+      height: 60px;
+    }
+  }
+}

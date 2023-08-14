@@ -1,0 +1,91 @@
+.header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    @include rwd-min($container-breakpoint) {
+      max-width: $content-w-max;
+      margin: 0 auto;
+    }
+
+    &-wrapper {
+      height: 174px;
+      width: 100%;
+      padding: 12px $container-1600 0;
+      background-image: url(../../../assets/images/header/bg.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom;
+
+      @include rwd-max(1439) {
+        padding: 12px $container-1280 0;
+      }
+
+      @include rwd-max(1279) {
+        padding: 12px $container-768 0;
+      }
+    }
+  }
+
+  &__branding {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__language-controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__language {
+    @extend %body1-font-styles;
+    color: $white-base;
+    transition: all 0.3s ease-in-out;
+
+    &--active {
+      text-decoration: underline;
+      color: $primary-red;
+    }
+  }
+
+  &__tg {
+    @extend %body1-font-styles;
+    color: $light-blue;
+    text-decoration: none;
+    padding: 16px 44px 12px;
+  }
+
+  &__nav {
+    position: fixed;
+    top: 58px;
+    right: 10px;
+    left: 10px;
+    z-index: -1;
+    transform: translateY(-101%);
+    transition: 0.3s ease-in-out transform;
+
+    &--active {
+      transform: translateY(0);
+    }
+
+    @include rwd-max(1599) {
+      left: 0;
+      right: 0;
+    }
+
+    @include rwd-min($container-breakpoint) {
+      top: 94px;
+    }
+  }
+}
