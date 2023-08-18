@@ -1,15 +1,53 @@
 .mldv-about {
-  
   &__content {
-    padding: 54px 0;
-    position: relative
+    position: relative;
+  }
+
+  &__headings-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: h-calc(100vw, $container-1600, 1, 0.39);
+    max-height: h-calc($content-w-max, 0px, 1, 0.39);
+
+    @include rwd-max(1439) {
+      height: h-calc(100vw, $container-1280, 1, 0.39);
+    }
+
+    @include rwd-max(1279) {
+      height: h-calc(100vw, $container-768, 1, 0.39);
+    }
+
+    @include rwd-max(1023) {
+      position: static;
+      height: fit-content;
+      max-height: unset;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 38px;
+    }
   }
 
   &__heading {
     @extend %h2-font-styles;
+    width: fit-content;
     position: absolute;
     color: $black-base;
     opacity: 0.7;
+
+    @include rwd-max(1023) {
+      position: static;
+    }
+
+    @include rwd-max(767) {
+      font-size: 42px;
+    }
+
+    @include rwd-max(479) {
+      font-size: 32px;
+    }
 
     &--1 {
       transform: rotate(4deg);
@@ -19,252 +57,36 @@
       @include rwd-max(1279) {
         right: -3%;
       }
+
+      @include rwd-max(1023) {
+        margin-left: 54%;
+      }
     }
 
     &--2 {
       transform: rotate(-6.765deg);
-      grid-column: 8 / 11;
-      top: 40px;
+      right: 22.5%;
+      top: 21%;
 
-      // @include rwd-min($container-breakpoint) {
-      //   grid-column: unset;
-      //   right: 314px;
-      // }
+      @include rwd-max(1023) {
+        margin-left: 14%;
+      }
     }
   }
 
   &__item {
-    @extend %grid-12-auto;
-    position: relative;
-    margin-bottom: 200px;
+    margin-bottom: 148px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 98px;
+    }
+
+    @include rwd-max(1023) {
+      margin-bottom: 54px;
+    }
 
     &:last-child {
       margin-bottom: 0;
-    }
-
-    &-img {
-      @include img-grid-height(100vw, 12, 32px, $container-1600, 6, 0.6523);
-      width: 100%;
-      transform: rotate(-2deg);
-      object-fit: cover;
-      object-position: center;
-
-      @include rwd-min($container-breakpoint) {
-        @include img-grid-height(1600px, 12, 32px, 0px, 6, 0.6523);
-      }
-
-      @include rwd-max(1439) {
-        @include img-grid-height(100vw, 12, 32px, $container-1280, 6, 0.6523);
-      }
-
-      @include rwd-max(1279) {
-        @include img-grid-height(100vw, 12, 32px, $container-768, 6, 0.6523);
-      }
-
-      &-wrapper {
-        position: relative;
-        grid-column: 1 / 7;
-
-        &::before {
-          content: "";
-          display: block;
-          width: 31%;
-          height: auto;
-          padding-bottom: calc(31% * 84 / 218);
-          transform: rotate(30deg);
-          background-image: url(../../../assets/images/utils/ductTape.png);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          position: absolute;
-          top: -4%;
-          right: -6%;
-          z-index: 5;
-        }
-
-        &::after {
-          content: "";
-          display: block;
-          width: 100%;
-          height: 100%;
-          background-image: url(../../../assets/images/mldv-about/TornPaper-Mockups-24-Edges.png);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          position: absolute;
-          transform: rotate(179deg);
-          top: 0;
-          right: 0;
-          z-index: 5;
-        }
-      }
-  }
-
-    &-arrow {
-      display: block;
-      width:  116px;
-      height: 60px;
-      grid-column: 4 / 5;
-      transform: rotate(130deg);
-      position: absolute;
-      bottom: -100px;
-      background-image: url(../../../assets/images/arrow.svg);
-      background-repeat: no-repeat;
-      background-position: right;
-      background-size: cover;
-
-      @include rwd-max(1439) {
-        width: 84px;
-        height: 44px;
-      }
-    }
-
-    &-subtitle {
-      @extend %h4-font-styles;
-      font-weight: bold;
-      color: $black-base;
-      opacity: 0.3;
-      grid-column: 2 / 7;
-      justify-self: center;
-      position: absolute;
-      bottom: -84px;
-      transform: rotate(-15deg) translateY(200%);
-    }
-
-    &-description {
-      display: flex;
-      align-items: flex-end;
-      width: 100%;
-      height: 65%;
-      // padding: 80px 130px 40px 40px;
-      padding: 0 0 40px 50px;
-      grid-column: 6 / 13;
-      position: absolute;
-      bottom: -10px;
-      z-index: 2;
-      background-image: url(../../../assets/images/mldv-about/caption-bg.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-
-      @include rwd-max(1599) {
-        padding-bottom: 20px;
-      }
-
-      @include rwd-max(1279) {
-        padding-left: 38px;
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        width: 20%;
-        height: auto;
-        padding-bottom: calc(20% * 202 / 170);
-        position: absolute;
-        right: -3%;
-        top: -3%;
-        background-image: url(../../../assets/images/utils/scribble-item.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        // @include rwd-min($container-breakpoint) {
-        //   top: 0;
-        // }
-
-        // @include rwd-max(1599) {
-        //   // right: -36px;
-        //   // top: -46px;
-        //   // right: -5%;
-        //   // top: -15%;
-        //   width: 154px;
-        //   height: 184px;
-        // }
-
-        // @include rwd-max(1439) {
-        //   width: 136px;
-        //   height: 162px;
-        // }
-      }
-
-      &-wrapper {
-        @extend %body1-font-styles;
-        color: $black-base;
-        max-width: 664px;
-        height: 144px;
-        // display: flex;
-        // align-items: flex-end;
-        overflow: hidden;
-        // height: 100%;
-
-        @include rwd-min(1601) {
-          // align-items: center;
-          max-width: 90%;
-        }
-
-        @include rwd-max(1599) {
-          max-width: 564px;
-          max-height: 134px;
-        }
-
-        @include rwd-max(1439) {
-          max-width: 524px;
-          max-height: 124px;
-        }
-
-        @include rwd-max(1279) {
-          max-width: 422px;
-          max-height: 98px;
-        }
-      }
-    }
-  }
-
-  &__item--style-2 {
-    .mldv-about__item-img {
-      transform: rotate(2.7deg);
-
-      &-wrapper {
-        grid-column: 7 / 13;
-
-        &::before {
-          width: 43%;
-          padding-bottom: calc(43% * 80 / 294);
-          transform: unset;
-          top: -8%;
-          right: 15%;
-          background-image: url(../../../assets/images/mldv-about/Masking-Tape.png);
-        }
-
-        &::after {
-          width: 104%;
-          height: auto;
-          padding-bottom: calc(104% * (564 / 722));
-          background-image: url(../../../assets/images/mldv-about/mldv-about-2-bg.png );
-          transform: unset;
-          top: -10%;
-          z-index: -1;
-        }
-      }
-    }
-
-    .mldv-about__item-description {
-      height: 87%;
-      grid-column: 1 / 8;
-      padding-bottom: 0;
-      align-items: center;
-      bottom: -34px;
-      background-image: url(../../../assets/images/mldv-about/torn-paper-2.png);
-
-      &::after {
-        display: none;
-      }
-
-      &-wrapper {
-        display: flex;
-        align-items: center;
-      }
     }
   }
 }

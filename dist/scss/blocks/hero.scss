@@ -1,9 +1,9 @@
 .hero {
   height: 100vh;
 
-  // &__header {
-  //   margin-bottom: 74px;
-  // }
+  @include rwd-max(1023) {
+    height: fit-content;
+  }
 
   &__content {
     display: flex;
@@ -21,26 +21,52 @@
       padding-top: 34vh;
     }
 
+    @include rwd-max(1023) {
+      flex-direction: column;
+      padding-top: 180px;
+    }
+
+    @include rwd-max(767) {
+      gap: 152px;
+    }
+
     figure {
       position: relative;
     }
 
     figure::after {
-      content: "";
-      display: block;
-      height: 84px;
-      width: 165px;
-      background-image: url(../../../assets/images/head/arrow-right-1.svg);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 0;
-      left: 100%;
+        content: "";
+        display: block;
+        height: 84px;
+        width: 165px;
+        background-image: url(../../../assets/images/utils/arrow.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 102%;
+        transform: rotate(-165deg);
+        opacity: 0.5;
 
       @include rwd-max(1279) {
         width: 126px;
         height: 64px;
+      }
+
+      @include rwd-max(1023) {
+        width: 128px;
+        height: 66px;
+        transform: translateY(100%) rotate(-60deg);
+        top: unset;
+        left: 5%;
+        bottom: -48px;
+      }
+
+      @include rwd-max(479) {
+        width: 108px;
+        height: 55px;
+        bottom: -36px;
       }
     }
 
@@ -49,18 +75,35 @@
       display: block;
       height: 60px;
       width: 118px;
-      background-image: url(../../../assets/images/head/arrow-right-2.svg);
+      background-image: url(../../../assets/images/utils/arrow.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
       top: 55%;
       left: calc(100% + 54px);
-      transform: translateY(-50%);
-
+      transform: translateY(-50%) rotate(-143deg);
+      opacity: 0.5;
+  
       @include rwd-max(1279) {
         width: 92px;
         height: 46px;
+      }
+
+      @include rwd-max(1023) {
+        width: 128px;
+        height: 66px;
+        transform: translateY(100%) rotate(-80deg);
+        top: unset;
+        left: unset;
+        right: 5%;
+        bottom: -36px;
+      }
+
+      @include rwd-max(479) {
+        width: 108px;
+        height: 55px;
+        bottom: -24px;
       }
     }
 
@@ -72,17 +115,37 @@
         display: block;
         height: 98px;
         width: 192px;
-        background-image: url(../../../assets/images/head/arrow-right-3.svg);
+        background-image: url(../../../assets/images/utils/arrow.svg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         position: absolute;
         left: 100%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) rotate(-135deg);
+        opacity: 0.5;
+
+        @include rwd-range(1439, 1280) {
+          bottom: -40%;
+        }
 
         @include rwd-max(1279) {
           width: 148px;
           height: 76px;
+        }
+
+        @include rwd-max(1023) {
+          width: 128px;
+          height: 66px;
+          transform: translate(-50%, 100%) rotate(-70deg);
+          left: 55%;
+          bottom: -64px;
+        }
+
+        @include rwd-max(479) {
+          width: 108px;
+          height: 55px;
+          left: 48%;
+          bottom: -58px;
         }
       }
     }
@@ -105,12 +168,67 @@
     @include rwd-max(1279) {
       width: 462px;
     }
+
+    @include rwd-max(1023) {
+      width: 656px;
+      height: h-calc(768px, $container-768, 1, 0.5765);
+    }
+
+    @include rwd-max(767) {
+      width: 424px;
+      height: h-calc(480px, $container-480, 1, 0.5765);
+    }
+
+    @include rwd-max(479) {
+      width: 335px;
+      height: h-calc(375px, $container-375, 1, 0.5765);
+    }
+
+    @include rwd-max(374) {
+      width: 288px;
+      height: h-calc(320px, $container-320, 1, 0.5765);
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    @include rwd-max(1023) {
+      width: 100%;
+      max-width: 656px;
+      position: relative;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: row;
+    }
+
+    @include rwd-max(767) {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      row-gap: 58px;
+      max-width: 424px;
+    }
+
+    @include rwd-max(479) {
+      max-width: 335px;
+    }
+
+    a {
+      @include rwd-max(1023) {
+        width: 100%;
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+      }
+
+      @include rwd-max(767) {
+        position: static;
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+    }
   }
 
   &__event-date {
@@ -119,7 +237,7 @@
     margin: 0 56px 28px 0;
     padding: 44px 90px 0 60px;
     height: 236px;
-    background-image: url(../../../assets/images/head/circle.svg);
+    background-image: url(../../../assets/images/utils/circle.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -135,6 +253,34 @@
       margin-right: 32px;
       height: 160px;
     }
+
+    @include rwd-max(1023) {
+      margin: 0;
+    }
+
+    @include rwd-max(767) {
+      height: 108px;
+      padding: 14px 30px 0 28px;
+    }
+  }
+
+  &__location-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 146px;
+
+    @include rwd-max(1599) {
+      margin-bottom: 98px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 34px;
+    }
+
+    @include rwd-max(1023) {
+      margin-bottom: 0;
+    }
   }
 
   &__location-title {
@@ -145,15 +291,13 @@
   &__event-location {
     @extend %h2-font-styles;
     color: $black-base;
-    margin-bottom: 146px;
-    height: 96px;
 
-    @include rwd-max(1599) {
-      margin-bottom: 98px;
+    @include rwd-max(767) {
+      font-size: 36px;
     }
 
-    @include rwd-max(1279) {
-      margin-bottom: 34px;
+    @include rwd-max(374) {
+      font-size: 32px;
     }
   }
 }

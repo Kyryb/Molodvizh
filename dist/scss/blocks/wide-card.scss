@@ -4,6 +4,40 @@
   &__content {
     @extend %grid-12-auto;
     position: relative;
+
+    @include rwd-max(1023) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    position: absolute;
+
+    @include rwd-max(1023) {
+      position: static;
+    }
+
+    h3 {
+      @extend %h3-font-styles;
+      color: $primary-red;
+      text-align: center;
+
+      @include rwd-max(1023) {
+        position: static;
+        font-size: 48px;
+      }
+
+      @include rwd-max(479) {
+        font-size: 36px;
+      }
+
+      @include rwd-max(374) {
+        font-size: 32px;
+      }
+    }
   }
 
   &__pseudo-wrapper {
@@ -24,6 +58,7 @@
 
   &__desc {
     display: flex ;
+    align-items: flex-end;
     position: absolute;
     background-repeat: no-repeat;
     background-position: center;
@@ -36,21 +71,8 @@
     }
   }
 
-  &__arrow-caption {
-    @extend %h4-font-styles;
-    color: $black-base;
-    text-align: center;
-    font-weight: bold;
-    opacity: 0.3;
-    position: absolute;
-    bottom: -25.5%;
-    right: -2%;
-    transform: translateY(100%) rotate(-15deg);
-  }
-
-  &--v1 {
+  &--v1-1, &--v1-2, &--v1-3 {
     .wide-card {
-
       &__content {
         height: grid-item-h(100vw, $container-1600, 32px, 0.8, 2);
         max-height: grid-item-h($content-w-max, 0px, 32px, 0.8, 2);
@@ -62,46 +84,130 @@
         @include rwd-max(1279) {
           height: grid-item-h(100vw, $container-768, 32px, 0.8, 2);
         }
+
+        @include rwd-max(1023) {
+          width: fit-content;
+          height: fit-content;
+          max-height: unset;
+        }
       }
 
       &__title {
-        position: absolute;
-        top: 15%;
-        right: 10.5%;
         transform: rotate(-4deg);
-
-          h3 {  
-          @extend %h3-font-styles;
-          color: $primary-red;
-          text-align: center;
-        }
       }
 
       &__pseudo-wrapper {
         grid-column: 1 / 7;
         height: 84%;
-        top: 13%;
+        top: 14%;
         left: 2%;
+
+        @include rwd-max(1023) {
+          @include h-w-calc(100vw, $container-768, 0.8, 0.65);
+          top: 0;
+          left: 0;
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.65);
+        }
       }
 
       &__img {
-        transform: rotate(177.5deg);
+        transform: rotate(-2deg);
       }
 
       &__desc {
         grid-column: 6 / 13;
+
+        @include rwd-max(1023) {
+          position: relative;
+        }
       }
     }
   }
 
-  &--v1-desc-cut {
+  &--v1-1, &--v1-2 {
+    .wide-card {
+      &__arrow-caption {
+        @extend %h4-font-styles;
+        width: fit-content;
+        color: rgba($black-base, 0.3);
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        transform: translateY(100%) rotate(-15deg);
 
+        @include rwd-max(767) {
+          font-size: 24px;
+        }
+
+        @include rwd-max(479) {
+          font-size: 16px;
+        }
+
+        &::before {
+          display: block;
+          content: "";
+          background-image: url(../../../assets/images/utils/arrow.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          position: absolute;
+        }
+      }
+
+      // &__img-container::after {
+      //   display: block;
+      //   content: "";
+      //   background-image: url(../../../assets/images/utils/arrow.svg);
+      //   background-repeat: no-repeat;
+      //   background-position: center;
+      //   background-size: cover;
+      //   width: 16%;
+      //   padding-bottom: 8.5%;
+      //   position: absolute;
+      //   transform: translateY(100%) rotate(131deg);
+      // }
+
+      &__pseudo-wrapper::after {
+        display: block;
+        content: "";
+        background-image: url(../../../assets/images/utils/ductTape.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 31%;
+        padding-bottom: 12%;
+        position: absolute;
+        right: -6%;
+        top: -3%;
+        z-index: 2;
+        transform: rotate(30deg);
+
+        @include rwd-max(1023) {
+          width: 24%;
+          padding-bottom: 9%;
+          right: -2%;
+          top: -4%;
+        }
+      }
+    }
+  }
+
+  &--v1-2, &--v1-3 {
     .wide-card {
       &__desc {
-        background-image: url(../../../assets/images/wide-card/v1-bg-cut.png);
-        align-items: flex-end;
         height: 39%;
-        bottom: 7.5%;
+        bottom: 6%;
 
         &-content {
           padding-left: 6%;
@@ -109,10 +215,328 @@
           max-width: 90%;
         }
       }
+
+      &__title {
+        top: 18%;
+        right: 10.5%;
+      }
+    } 
+  }
+
+  &--v1-1 {
+    .wide-card {
+      &__pseudo-wrapper {
+        @include rwd-max(1023) {
+          margin-bottom: 92px;
+        }
+
+        @include rwd-max(767) {
+          margin-bottom: 68px;
+        }
+      }
+
+      &__img-container::after {
+        bottom: -13%;
+        left: 50%;
+
+        @include rwd-max(1023) {
+          transform: translateY(100%) rotate(125deg);
+          left: unset;
+          right: 20%;
+          bottom: -11%;
+        }
+      }
+
+      &__img-container::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../../assets/images/wide-card/v1-mask.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        transform: rotate(180deg);
+        top: 0;
+        right: 0;
+        z-index: 2;
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/wide-card/v1-1-bg.png);
+        height: 54%;
+        bottom: 0;
+
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/wide-card/v1-1-bg-mobile.png);
+          @include h-w-calc(100vw, $container-768, 0.8, 0.558);
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.558);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.558);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.558);
+        }
+
+        &::after {
+          display: block;
+          content: "";
+          background-image: url(../../../assets/images/utils/scribble-item.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          height: 69%;
+          width: 21.5%;
+          position: absolute;
+          right: -3%;
+          top: -7%;
+
+          @include rwd-max(1023) {
+            width: 24%;
+            height: 53%;
+            top: -10%;
+          }
+        }
+
+        &-content {
+          padding: 0 0 5% 6%;
+          max-width: 88%;
+        }
+      }
+
+      &__arrow-caption {
+        bottom: -25%;
+        left: 16%;
+
+        @include rwd-max(1023) {
+          position: static;
+          align-self: flex-end;
+          margin-bottom: 24px;
+          transform: rotate(-15deg);
+        }
+
+        @include rwd-max(767) {
+          margin-bottom: 8px;
+        }
+
+        &::before {
+          width: 116px;
+          height: 60px;
+          transform: translateY(-100%) rotate(150deg);
+          top: -32px;
+          left: 40%;
+
+          @include rwd-max(1599) {
+            width: 98px;
+            height: 48px;
+          }
+
+          @include rwd-max(1279) {
+            width: 84px;
+            height: 34px;
+          }
+
+          @include rwd-max(1023) {
+            transform: translateY(-100%) rotate(100deg);
+            left: 30%;
+          }
+
+          @include rwd-max(767) {
+            width: 54px;
+            top: -22px;
+          }
+
+          @include rwd-max(479) {
+            width: 50px;
+            height: 26px;
+          }
+        }
+      }
+    }
+  }
+  
+  &--v1-2 {
+    .wide-card {
+      &__content {
+        @include rwd-max(1023) {
+          display: grid;
+          grid-template-columns: unset;
+        }
+      }
+
+      &__pseudo-wrapper {
+        @include rwd-max(1023) {
+          margin-bottom: 48px;
+          grid-row: 1 / 2;
+          grid-column: 1;
+        }
+
+        @include rwd-max(479) {
+          margin-bottom: 36px;
+        }
+      }
+
+      &__title {
+        @include rwd-max(1023) {
+          margin-bottom: 36px;
+          grid-row: 2 / 3;
+          grid-column: 1;
+        }
+      }
+
+      &__desc {
+        background-image: url(../../../assets/images/wide-card/v1-2-bg.png);
+
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/wide-card/v1-2-bg-mobile.png);
+          @include h-w-calc(100vw, $container-768, 0.8, 0.45);
+          grid-row: 3 / 4;
+          grid-column: 1; 
+          margin-bottom: 98px;
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.45);
+          margin-bottom: 82px;
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.45);
+          margin-bottom: 54px;
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.45);
+        }
+      }
+
+      &__arrow-caption {
+        bottom: -21%;
+        left: 11%;
+
+        @include rwd-max(1023) {
+          position: static;
+          grid-row: 4 / 5;
+          grid-column: 1;
+          margin-left: auto;
+          transform: rotate(-15deg);
+        }
+
+        &::before {
+          width: 108px;
+          height: 54px;
+          top: -28px;
+          left: 40%;
+          transform: translateY(-100%) rotate(145deg);
+
+          @include rwd-max(1599) {
+            width: 88px;
+            height: 48px;
+            top: -20px;
+          }
+
+          @include rwd-max(1279) {
+            width: 64px;
+            height: 36px;
+          }
+
+          @include rwd-max(479) {
+            width: 48px;
+            height: 24px;
+          }
+        }
+      }
     }
   }
 
-  &--v2 {
+  &--v1-3 {
+    .wide-card {
+      &__desc {
+        background-image: url(../../../assets/images/wide-card/v1-3-bg.png);
+        // align-items: flex-end;
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/wide-card/v1-3-bg-mobile.png);
+          @include h-w-calc(100vw, $container-768, 0.8, 0.428);
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.428);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.428);
+        }
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.428);
+        }
+      }
+
+      &__pseudo-wrapper {
+        @include rwd-max(1023) {
+          margin-bottom: 72px;
+        }
+      }
+
+     &__pseudo-wrapper::before, &__pseudo-wrapper::after {
+        display: block;
+        content: "";
+        background-image: url(../../../assets/images/utils/ductTape.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 16%;
+        padding-bottom: 6%;
+        position: absolute;
+        z-index: 2;
+      }
+
+      &__pseudo-wrapper::before {
+        left: -3.5%;
+        bottom: -4%;
+        transform: rotate(-135deg);
+      }
+
+      &__pseudo-wrapper::after {
+        right: -4%;
+        top: -6%;
+        transform: rotate(-75deg);
+      }
+
+      &__img-container::after {
+        display: block;
+        content: "";
+        background-image: url(../../../assets/images/utils/scribble-35.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 33%;
+        padding-bottom: 40%;
+        position: absolute;
+        left: -18%;
+        top: -15%;
+        z-index: 2;
+      }
+
+      &__title {
+        @include rwd-max(1023) {
+          margin-bottom: 64px;
+        }
+      }
+    }
+  }
+
+  &--v2-1, &--v2-2, &--v2-3 {
+    @include rwd-max(1023) {
+      padding-top: 7%;
+    }
+
     .wide-card {
       &__content {
         height: h-calc(100vw, $container-1600, 1, 0.406);
@@ -125,18 +549,11 @@
         @include rwd-max(1279) {
           height: h-calc(100vw, $container-768, 1, 0.406);
         }
-      }
 
-      &__title {
-        position: absolute;
-        top: 10%;
-        left: 9%;
-        transform: rotate(2deg);
-
-          h3 {  
-          @extend %h3-font-styles;
-          color: $primary-red;
-          text-align: center;
+        @include rwd-max(1023) {
+          width: fit-content;
+          height: fit-content;
+          max-height: unset;
         }
       }
 
@@ -145,168 +562,530 @@
         height: 80.5%;
         top: 9%;
         right: 2%;
+
+        @include rwd-max(1023) {
+          @include h-w-calc(100vw, $container-768, 0.8, 0.65);
+          top: 0%;
+          left: 0;
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.65);
+        }
+
+        &::after {
+          display: block;
+          content: "";
+          background-image: url(../../../assets/images/utils/maskingTape.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 43.5%;
+          padding-bottom: 12%;
+          position: absolute;
+          right: 15%;
+          top: -10%;
+          z-index: 2;
+        }
       }
 
       &__img {
         transform: rotate(2.7deg);
+
+        &-container::after {
+          display: block;
+          content: "";
+          background-image: url(../../../assets/images/wide-card/red-bg.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 106.5%;
+          height: 124%;
+          position: absolute;
+          top: -11%;
+          right: -2%;
+          z-index: -1;
+
+          @include rwd-max(1023) {
+            width: 103.7%;
+            right: 0;
+            top: -12%;
+          }
+        }
+      }
+
+      &__title {
+        transform: rotate(2deg);
       }
 
       &__desc {
         grid-column: 1 / 8;
-        background-image: url(../../../assets/images/wide-card/v2-bg.png);
-        height: 68%;
-        bottom: 4%;
-        align-items: center;
+      }
+    }
+  }
 
-        &-content {
-          // padding-bottom: 11%;
-          padding-left: 8.5%;
-          max-width: 95%;
+  &--v2-1, &--v2-3 {
+    .wide-card__desc {
+      // grid-column: 6 / 13;
+        // grid-column: 1 / 8;
+      background-image: url(../../../assets/images/wide-card/v2-bg.png);
+      height: 68%;
+      bottom: 4%;
+      align-items: center;
+
+      &-content {
+        // padding-bottom: 11%;
+        padding-left: 8.5%;
+        max-width: 95%;
+      }
+    }
+  }
+
+  &--v2-1 {
+    @include rwd-max(1023) {
+      height: calc((100vw - ($container-768 * 2)) * 0.8 * 0.88  + ((100vw - ($container-768 * 2)) * 0.8 * 0.65 * 0.76) + ((100vw - $container-768 * 2) * 0.07));
+    }
+
+    @include rwd-max(767) {
+      height: calc((100vw - ($container-480 * 2)) * 1 * 0.88  + ((100vw - ($container-480 * 2)) * 1 * 0.65 * 0.76) + ((100vw - $container-480 * 2) * 0.07));
+    }
+
+    @include rwd-max(479) {
+      height: calc((100vw - ($container-375 * 2)) * 1 * 0.88  + ((100vw - ($container-375 * 2)) * 1 * 0.65 * 0.76) + ((100vw - $container-375 * 2) * 0.07));
+    }
+
+    @include rwd-max(374) {
+      height: calc((100vw - ($container-320 * 2)) * 1 * 0.88  + ((100vw - ($container-320 * 2)) * 1 * 0.65 * 0.76) + ((100vw - $container-320 * 2) * 0.07));
+    }
+
+    .wide-card {
+      &__desc {
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/wide-card/v2-1-bg-mobile.png);
+          @include h-w-calc(100vw, $container-768, 0.8, 0.88);
+          top: 76%;
+          bottom: unset;
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.88);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.88);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.88);
         }
       }
     }
   }
 
-  &--v2-desc-cut {
+  &--v2-2 {
     .wide-card {
+      &__pseudo-wrapper {
+        @include rwd-max(1023) {
+          margin-bottom: 64px;
+        }
+      }
+
       &__desc {
         background-image: url(../../../assets/images/wide-card/v2-bg-cut.png);
-        // align-items: center;
+        align-items: center;
         height: 47%;
         bottom: 25%;
 
+        @include rwd-max(1023) {
+          position: relative;
+          bottom: unset;
+          @include h-w-calc(100vw, $container-768, 0.8, 0.332);
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 0.332);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 0.332);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 0.332);
+        }
+
         &-content {
           padding-left: 10%;
-          // padding-bottom: unset;
           max-width: 95%;
         }
       }
 
       &__title {
         top: 4%;
+        left: 9%;
+
+        @include rwd-max(1023) {
+          margin-bottom: 54px;
+        }
       }
     }
   }
 
-  &--right-tape-L {
-    .wide-card__pseudo-wrapper::after {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/utils/ductTape.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 31%;
-      padding-bottom: 12%;
-      position: absolute;
-      right: -6%;
-      top: -3%;
-      z-index: 2;
-      transform: rotate(30deg);
+  &--v2-3 {
+    .wide-card {
+      &__pseudo-wrapper {
+        @include rwd-max(1023) {
+          margin-bottom: 78px;
+        }
+      }
+
+      &__desc {
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/wide-card/v2-3-bg-mobile.png);
+          position: relative;
+          bottom: unset;
+          @include h-w-calc(100vw, $container-768, 0.8, 1);
+        }
+
+        @include rwd-max(767) {
+          @include h-w-calc(100vw, $container-480, 1, 1);
+        }
+
+        @include rwd-max(479) {
+          @include h-w-calc(100vw, $container-375, 1, 1);
+        }
+
+        @include rwd-max(374) {
+          @include h-w-calc(100vw, $container-320, 1, 1);
+        }
+      }
+
+      &__title {
+        top: 10%;
+        left: 9%;
+      }
     }
   }
 
-  &--right-tape-S {
-    .wide-card__pseudo-wrapper::after {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/utils/ductTape.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 16%;
-      padding-bottom: 6%;
-      position: absolute;
-      right: -4%;
-      top: -6%;
-      z-index: 2;
-      transform: rotate(-75deg);
-    }
-  }
+  // &--v1 {
+  //   .wide-card {
 
-  &--left-tape-S {
-    .wide-card__pseudo-wrapper::before {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/utils/ductTape.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 16%;
-      padding-bottom: 6%;
-      position: absolute;
-      left: -3.5%;
-      bottom: -4%;
-      z-index: 2;
-      transform: rotate(-135deg);
-    }
-  }
+  //     // &__content {
+  //     //   height: grid-item-h(100vw, $container-1600, 32px, 0.8, 2);
+  //     //   max-height: grid-item-h($content-w-max, 0px, 32px, 0.8, 2);
 
-  &--scribble{
-    .wide-card__img-container::after {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/utils/scribble-35.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 33%;
-      padding-bottom: 40%;
-      position: absolute;
-      left: -18%;
-      top: -15%;
-      z-index: 2;
-    }
-  }
+  //     //   @include rwd-max(1439) {
+  //     //     height: grid-item-h(100vw, $container-1280, 32px, 0.8, 2);
+  //     //   }
 
-  &--red-bg {
-    .wide-card__img-container::before {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/wide-card/red-bg.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 106.5%;
-      padding-bottom: 83%;
-      position:absolute;
-      top: -11%;
-      right: -2%;
-      z-index: -1;
-    }
-  }
+  //     //   @include rwd-max(1279) {
+  //     //     height: grid-item-h(100vw, $container-768, 32px, 0.8, 2);
+  //     //   }
+  //     // }
 
-  &--masking-tape {
-    .wide-card__pseudo-wrapper::after {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/utils/maskingTape.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 43.5%;
-      padding-bottom: 12%;
-      position: absolute;
-      right: 15%;
-      top: -10%;
-      z-index: 2;
-    }
-  }
+  //     &__title {
+  //       position: absolute;
+  //       top: 15%;
+  //       right: 10.5%;
+  //       transform: rotate(-4deg);
 
-  &--arrow-caption {
-    .wide-card__img-container::after {
-      display: block;
-      content: "";
-      background-image: url(../../../assets/images/arrow.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 16%;
-      padding-bottom: 8.5%;
-      position: absolute;
-      top: calc(100% + 7.5%);
-      right: 32.5%;
-      transform: rotate(131deg);
-    }
-  }
+  //         h3 {
+  //         @extend %h3-font-styles;
+  //         color: $primary-red;
+  //         text-align: center;
+  //       }
+  //     }
+
+  //     // &__pseudo-wrapper {
+  //     //   grid-column: 1 / 7;
+  //     //   height: 84%;
+  //     //   top: 14%;
+  //     //   left: 2%;
+  //     // }
+
+  //     // &__img {
+  //     //   transform: rotate(-2deg);
+  //     // }
+
+  //     &__desc {
+  //       // grid-column: 6 / 13;
+  //       background-image: url(../../../assets/images/wide-card/v1-bg.png);
+  //       height: 54%;
+  //       bottom: 0;
+
+  //       &-content {
+  //         padding: 0 0 5% 6%;
+  //         max-width: 88%;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &--v1-desc-cut {
+
+  //   .wide-card {
+  //     &__desc {
+  //       background-image: url(../../../assets/images/wide-card/v1-bg-cut.png);
+  //       // align-items: flex-end;
+  //       height: 39%;
+  //       bottom: 7.5%;
+
+  //       &-content {
+  //         padding-left: 6%;
+  //         padding-bottom: 4.8%;
+  //         max-width: 90%;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &--v2 {
+  //   .wide-card {
+  //     // &__content {
+  //     //   height: h-calc(100vw, $container-1600, 1, 0.406);
+  //     //   max-height: h-calc($content-w-max, 0px, 1, 0.406);
+
+  //     //   @include rwd-max(1439) {
+  //     //     height: h-calc(100vw, $container-1280, 1, 0.406);
+  //     //   }
+
+  //     //   @include rwd-max(1279) {
+  //     //     height: h-calc(100vw, $container-768, 1, 0.406);
+  //     //   }
+  //     // }
+
+  //     // &__img-container::before {
+  //     //   display: block;
+  //     //   content: "";
+  //     //   background-image: url(../../../assets/images/wide-card/red-bg.png);
+  //     //   background-repeat: no-repeat;
+  //     //   background-position: center;
+  //     //   background-size: cover;
+  //     //   width: 106.5%;
+  //     //   height: 124%;
+  //     //   position:absolute;
+  //     //   top: -11%;
+  //     //   right: 0;
+  //     //   z-index: -1;
+  //     // }
+
+  //     &__title {
+  //       position: absolute;
+  //       top: 10%;
+  //       left: 9%;
+  //       transform: rotate(2deg);
+
+  //         h3 {  
+  //         @extend %h3-font-styles;
+  //         color: $primary-red;
+  //         text-align: center;
+  //       }
+  //     }
+
+  //     // &__pseudo-wrapper {
+  //     //   grid-column: 7 / 13;
+  //     //   height: 80.5%;
+  //     //   top: 9%;
+  //     //   right: 2%;
+  //     // }
+
+  //     // &__img {
+  //     //   transform: rotate(2.7deg);
+  //     // }
+
+  //     &__desc {
+  //       // grid-column: 1 / 8;
+  //       background-image: url(../../../assets/images/wide-card/v2-bg.png);
+  //       height: 68%;
+  //       bottom: 4%;
+  //       align-items: center;
+
+  //       &-content {
+  //         // padding-bottom: 11%;
+  //         padding-left: 8.5%;
+  //         max-width: 95%;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &--v2-desc-cut {
+  //   .wide-card {
+  //     &__desc {
+  //       background-image: url(../../../assets/images/wide-card/v2-bg-cut.png);
+  //       // align-items: center;
+  //       height: 47%;
+  //       bottom: 25%;
+
+  //       &-content {
+  //         padding-left: 10%;
+  //         // padding-bottom: unset;
+  //         max-width: 95%;
+  //       }
+  //     }
+
+  //     &__title {
+  //       top: 4%;
+  //     }
+  //   }
+  // }
+
+  // &--right-tape-L {
+  //   .wide-card__pseudo-wrapper::after {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/ductTape.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     width: 31%;
+  //     padding-bottom: 12%;
+  //     position: absolute;
+  //     right: -6%;
+  //     top: -3%;
+  //     z-index: 2;
+  //     transform: rotate(30deg);
+  //   }
+  // }
+
+  // &--right-tape-S {
+  //   .wide-card__pseudo-wrapper::after {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/ductTape.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     width: 16%;
+  //     padding-bottom: 6%;
+  //     position: absolute;
+  //     right: -4%;
+  //     top: -6%;
+  //     z-index: 2;
+  //     transform: rotate(-75deg);
+  //   }
+  // }
+
+  // &--left-tape-S {
+  //   .wide-card__pseudo-wrapper::before {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/ductTape.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     width: 16%;
+  //     padding-bottom: 6%;
+  //     position: absolute;
+  //     left: -3.5%;
+  //     bottom: -4%;
+  //     z-index: 2;
+  //     transform: rotate(-135deg);
+  //   }
+  // }
+
+  // &--scribble{
+  //   .wide-card__img-container::after {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/scribble-35.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     width: 33%;
+  //     padding-bottom: 40%;
+  //     position: absolute;
+  //     left: -18%;
+  //     top: -15%;
+  //     z-index: 2;
+  //   }
+  // }
+
+  // &--masking-tape {
+  //   .wide-card__pseudo-wrapper::after {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/maskingTape.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     width: 43.5%;
+  //     padding-bottom: 12%;
+  //     position: absolute;
+  //     right: 15%;
+  //     top: -10%;
+  //     z-index: 2;
+  //   }
+  // }
+
+  // &--desc-scribble {
+  //   .wide-card__desc::after {
+  //     display: block;
+  //     content: "";
+  //     background-image: url(../../../assets/images/utils/scribble-item.png);
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //     height: 69%;
+  //     width: 21.5%;
+  //     position: absolute;
+  //     right: -3%;
+  //     top: -7%;
+  //   }
+  // }
+
+  // &--arrow-caption {
+
+  //   .wide-card {
+  //     &__img-container::after {
+  //       display: block;
+  //       content: "";
+  //       background-image: url(../../../assets/images/utils/arrow.svg);
+  //       background-repeat: no-repeat;
+  //       background-position: center;
+  //       background-size: cover;
+  //       width: 16%;
+  //       padding-bottom: 8.5%;
+  //       position: absolute;
+  //       top: calc(100% + 7.5%);
+  //       right: 32.5%;
+  //       transform: translateY(100%) rotate(131deg);
+  //     }
+
+  //     &__arrow-caption {
+  //       @extend %h4-font-styles;
+  //       color: $black-base;
+  //       text-align: center;
+  //       font-weight: bold;
+  //       opacity: 0.3;
+  //       position: absolute;
+  //       bottom: -25.5%;
+  //       right: -2%;
+  //       transform: translateY(100%) rotate(-15deg);
+  //     }
+  //   }
+  // }
+
+  // &--arrow-caption-short {
+//     .wide-card {
+//       &__img-container::after {
+//         bottom: -13%;
+//         left: 50%
+//       }
+
+//       &__arrow-caption {
+//         bottom: -32.5%;
+//         left: 30%;
+//       }
+//     }
+//   }
+// }
 }

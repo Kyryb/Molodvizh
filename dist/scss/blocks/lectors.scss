@@ -1,5 +1,4 @@
 .lectors {
-
   &__top-wrapper {
     padding: 0 70px;
 
@@ -10,23 +9,50 @@
     @include rwd-max(1279) {
       padding: 0 26px;
     }
+
+    @include rwd-max(479) {
+      padding: 0 2px;
+    }
   }
 
   &__top {
     display: flex;
     flex-direction: column;
     max-width: $content-w-max;
-    margin: 0 auto;
+    margin: 0 auto 80px;
     padding: 18px 15% 56px 4%;
-    margin-bottom: 80px;
     position: relative;
-    background-image: url(../../../assets/images/lectors/black-bg.png);
+    background-image: url(../../../assets/images/utils/black-bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     @include rwd-max(1439) {
       margin-bottom: 56px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 48px;
+    }
+
+    @include rwd-max(1023) {
+      background-image: url(../../../assets/images/utils/black-bg-mobile.png);
+    }
+
+    @include rwd-max(767) {
+      padding: 18px 15% 48px 4%;
+      margin-bottom: 36px;
+    }
+
+    @include rwd-max(479) {
+      padding: 28px 4% 26px 4%;
+      gap: 12px;
+    }
+
+    @include rwd-max(374) {
+      padding: 16px 4% 16px 4%;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
     &::after {
@@ -41,6 +67,24 @@
       position: absolute;
       bottom: 0;
       right: 6%;
+
+      @include rwd-max(767) {
+        width: 48px;
+        height: 78px;
+        top: 5%;
+      }
+
+      @include rwd-max(479) {
+        width: 34px;
+        height: 64px;
+        right: 10%;
+      }
+
+      @include rwd-max(374) {
+        width: 28px;
+        height: 48px;
+        right: 10%;
+      }
     }
 
     &-titles {
@@ -58,6 +102,11 @@
   &__subtitle {
     opacity: 0.5;
     transform: rotate(-4deg);
+
+    @include rwd-max(479) {
+      font-size: 20px;
+      transform: rotate(-10deg);
+    }
   }
 
   &__title {
@@ -66,20 +115,54 @@
 
   &__swiper {
     padding-top: 4.5% !important;
-    margin-bottom: 32px !important;
+    margin: 0 $container-1600 32px !important;
+    max-width: $content-w-max;
+
+    @include rwd-min($container-breakpoint) {
+      margin: 0 auto 32px!important;
+    }
+
+    @include rwd-max(1439) {
+      margin: 0 $container-1280 32px !important;
+    }
+
+    @include rwd-max(1279) {
+      margin: 0 $container-768 32px !important;
+    }
+
+    @include rwd-max(1023) {
+      padding-top: 6% !important;
+      margin: 0 0 72px $container-768 !important;
+    }
+
+    @include rwd-max(767) {
+      padding-top: 10% !important;
+      margin: 0 0 72px $container-480 !important;
+    }
+
+    @include rwd-max(479) {
+      margin: 0 0 72px $container-375 !important;
+    }
+
+    @include rwd-max(374) {
+      margin: 0 0 56px $container-320 !important;
+    }
 
     .swiper-wrapper {
       margin-bottom: 62px;
 
-      @include rwd-max(1439) {
-        margin-bottom: 36px;
+      @include rwd-max(1279) {
+        margin-bottom: 48px;
+      }
+
+      @include rwd-max(767) {
+        margin-bottom: 32px;
       }
     }
 
-    .swiper-slide:nth-child(3n+1) .lectors__card {
-      // margin-left: 4%;
-      transform: rotate(-3.15deg);
-    }
+    // .swiper-slide:nth-child(3n+1) .lectors__card {
+    //   transform: rotate(-3.15deg);
+    // }
 
     .swiper-slide:nth-child(3n+2) {
       z-index: 2;
@@ -127,11 +210,20 @@
     @include rwd-max(1279) {
       width: grid-item-w(100vw, $container-768, 32px, 3);
     }
-    
-    &--rotated {
-      margin: 0 4%;
-      transform: rotate(-3.15deg);
+
+    @include rwd-max(1023) {
+      max-width: unset;
+      width: grid-item-w(100vw, $container-768, 32px, 2);
     }
+
+    @include rwd-max(767) {
+      width: 100%;
+    }
+    
+    // &--rotated {
+    //   margin: 0 4%;
+    //   transform: rotate(-3.15deg);
+    // }
 
     &-img {
       display: block;
@@ -147,6 +239,23 @@
         height: grid-item-h(100vw, $container-768, 32px, 0.96, 3);
       }
 
+      @include rwd-max(1023) {
+        max-height: unset;
+        height: grid-item-h(100vw, $container-768, 32px, 0.96, 2);
+      }
+
+      @include rwd-max(767) {
+        height: h-calc(100vw, $container-480, 0.776, 0.96);
+      }
+
+      @include rwd-max(479) {
+        height: h-calc(100vw, $container-375, 0.776, 0.96);
+      }
+
+      @include rwd-max(374) {
+        height: h-calc(100vw, $container-320, 0.776, 0.96);
+      }
+
       &-container {
         width: 100%;
         margin-bottom: 32px;
@@ -160,6 +269,14 @@
 
     &-about {
       @extend %body1-font-styles;
+
+      @include rwd-max(479) {
+        font-size: 16px;
+      }
+
+      @include rwd-max(374) {
+        font-size: 14px;
+      }
     }
   }
 

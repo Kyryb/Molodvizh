@@ -8,5 +8,8 @@ $container-1600: 108px;
 $content-w-1600: calc(100vw - ($container-1600*2));
 $container-1280: 86px;
 $container-768: 56px;
+$container-480: 28px;
+$container-375: 20px;
+$container-320: 16px;
 $container-breakpoint: 1600 + 108 * 2;
 $content-w-max: 1600px;

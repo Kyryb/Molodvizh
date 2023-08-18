@@ -13,11 +13,22 @@
   @media screen and (min-height: $min-width) {@content}
 }
 
+@mixin rwd-range($px, $px2) {
+  $max-width: #{$px}px;
+  $min-width: #{$px2}px;
+  @media screen and (max-width: $max-width) and (min-width: $min-width) {@content}
+}
+
 @mixin img-grid-height($screen, $grid-columns, $grid-gap, $container-mg, $grid-span, $height-ratio) {
   height: calc((($screen - 2 * $container-mg - $grid-gap * ($grid-columns - 1)) / $grid-columns * $grid-span + ($grid-gap * ($grid-span - 1))) * $height-ratio);
 }
 
 @mixin event-img-h-w-calc($content-w, $container-mg, $ratio-w, $ratio-h) {
+  width: calc(($content-w - ($container-mg * 2)) * $ratio-w);
+  height: calc(($content-w - ($container-mg * 2)) * $ratio-w * $ratio-h);
+}
+
+@mixin h-w-calc($content-w, $container-mg, $ratio-w, $ratio-h) {
   width: calc(($content-w - ($container-mg * 2)) * $ratio-w);
   height: calc(($content-w - ($container-mg * 2)) * $ratio-w * $ratio-h);
 }

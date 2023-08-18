@@ -1,8 +1,17 @@
 .page {
   background-image: url(../../../assets/images/page-bg.png);
   background-position: center;
+  overflow-x: hidden;
 
   &__section {
     margin-bottom: 180px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 144px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 112px;
+    }
   }
 }

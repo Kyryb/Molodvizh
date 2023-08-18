@@ -1,15 +1,54 @@
 .program {
   &__top {
-    padding: 32px 0 82px;
+    // padding: 32px 0 82px;
+    padding: 32px 0 56px;
     width: 100%;
-    margin-bottom: 132px;
-    background-image: url(../../../assets/images/program/black-bg.png);
+    max-width: $content-w-max;
+    margin: 0 auto 180px;
+    // margin-bottom: 132px;
+    background-image: url(../../../assets/images/utils/black-bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
-    @include rwd-max(1599) {
+    @include rwd-max(1439) {
+      margin-bottom: 144px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 98px;
+    }
+
+    @include rwd-max(1023) {
+      background-image: url(../../../assets/images/utils/black-bg-mobile.png);
+    }
+
+    @include rwd-max(767) {
+      margin-bottom: 72px;
+      padding: 22px 0 38px;
+    }
+
+    @include rwd-max(374) {
       background-size: contain;
+    }
+    // @include rwd-max(1599) {
+    //   background-size: contain;
+    // }
+
+    &-wrapper {
+      padding: 0 70px;
+  
+      @include rwd-max(1439) {
+        padding: 0 54px;
+      }
+  
+      @include rwd-max(1279) {
+        padding: 0 26px;
+      }
+
+      @include rwd-max(479) {
+        padding: 0 2px;
+      }
     }
 
     &-content {
@@ -17,6 +56,10 @@
       flex-direction: column;
       align-items: center;
       gap: 14px;
+
+      @include rwd-max(479) {
+        gap: 8px;
+      }
     }
 
     &-subtitle {
@@ -40,9 +83,10 @@
 
   &__swiper {
     .swiper-wrapper {
+      align-items: center;
       margin-bottom: 48px;
 
-      @include rwd-max(1439) {
+      @include rwd-max(1023) {
         margin-bottom: 24px;
       }
     }

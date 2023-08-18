@@ -12,11 +12,41 @@
     &--mldv {
       width: 114px;
       height: 114px;
+
+      @include rwd-max(1023) {
+        width: 92px;
+        height: 92px;
+      }
+
+      &-h {
+        width: 68px;
+        height: 68px;
+
+        @include rwd-max(479) {
+          width: 58px;
+          height: 58px;
+        }
+      }
     }
 
     &--tvori {
       width: 204px;
       height: 60px;
+
+      @include rwd-max(1023) {
+        width: 156px;
+        height: 40px;
+      }
+
+      &-h {
+        width: 129px;
+        height: 38px;
+
+        @include rwd-max(479) {
+          width: 94px;
+          height: 28px;
+        }
+      }
     }
   }
 }

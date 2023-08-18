@@ -1,5 +1,4 @@
 .footer {
-
   &__btn {
     align-self: start;
     width: 360px;
@@ -7,6 +6,10 @@
 
     @include rwd-max(1599) {
       width: unset;
+    }
+
+    @include rwd-max(767) {
+      width: 100%;
     }
   }
 
@@ -27,6 +30,17 @@
       height: 500px;
     }
 
+    @include rwd-max(767) {
+      background-image: url(../../../assets/images/footer/top-bg-mobile.png);
+      height: auto;
+      padding-bottom: 280px;
+      background-position: bottom;
+    }
+
+    @include rwd-max(479) {
+      padding-bottom: 208px;
+    }
+
     &-title {
       @extend %h3-font-styles;
       color: $white-base;
@@ -38,10 +52,26 @@
       p {
         @extend %body1-font-styles;
         color: $white-base;
+
+        @include rwd-max(1023) {
+          font-size: 18px;
+        }
+
+        @include rwd-max(479) {
+          font-size: 16px;
+        }
+
+        @include rwd-max(374) {
+          font-size: 14px;
+        }
       }
 
       @include rwd-max(1599) {
         max-width: 448px;
+      }
+
+      @include rwd-max(767) {
+        max-width: none;
       }
     }
 
@@ -58,23 +88,50 @@
       @include rwd-max(1279) {
         padding-left: $container-768;
       }
+
+      @include rwd-max(1023) {
+        padding-left: 0;
+      }
+
+      @include rwd-max(767) {
+        gap: 40px;
+        align-items: center;
+      }
+
+      @include rwd-max(479) {
+        align-items: start;
+      }
     }
 
     &-contacts {
       display: flex;
       justify-content: space-between;
+
+      @include rwd-max(767) {
+        flex-direction: column;
+        gap: 24px;
+        justify-content: unset;
+      }
     }
 
     &-left {
       display: flex;
       flex-direction: column;
       gap: 26px;
+
+      @include rwd-max(767) {
+        gap: 24px;
+      }
     }
 
     &-right {
       display: flex;
       flex-direction: column;
       gap: 8px;
+
+      @include rwd-max(767) {
+        gap: 40px;
+      }
     }
   }
 
@@ -86,6 +143,16 @@
     background-position: top;
     background-size: cover;
 
+    @include rwd-max(767) {
+      background-image: url(../../../assets/images/footer/bottom-bg-mobile.png);
+      padding-top: 280px;
+      height: auto;
+    }
+
+    @include rwd-max(479) {
+      padding-top: 208px;
+      padding-bottom: 30px;
+    }
     
     @include rwd-min($container-breakpoint) {
       height: 560px;
@@ -97,6 +164,10 @@
       justify-content: flex-end;
       gap: 118px;
       height: 100%;
+
+      @include rwd-max(767) {
+        gap: 60px;
+      }
       
       &-wrapper {
         height: 100%;
@@ -106,6 +177,13 @@
     &-main {
       display: flex;
       justify-content: space-between;
+
+      @include rwd-max(767) {
+        align-items: center;
+        justify-content: unset;
+        flex-direction: column;
+        gap: 56px;
+      }
     }
 
     &-branding {
@@ -128,6 +206,11 @@
       border-radius: 50%;
       background-color: rgba(241, 231, 218, 0.20);
 
+      @include rwd-max(1023) {
+        width: 48px;
+        height: 48px;
+      }
+
       i {
         display: block;
         width: 100%;
@@ -139,18 +222,30 @@
       &--ig {
         i {
           background-image: url(../../../assets/images/footer/icon-ig.svg);
+
+          @include rwd-max(1023) {
+            background-image: url(../../../assets/images/footer/icon-ig-s.svg)
+          }
         }
       }
 
       &--tg {
         i {
           background-image: url(../../../assets/images/footer/icon-tg.svg);
+
+          @include rwd-max(1023) {
+            background-image: url(../../../assets/images/footer/icon-tg-s.svg)
+          }
         }
       }
 
       &--mail {
         i {
           background-image: url(../../../assets/images/footer/icon-mail.svg);
+
+          @include rwd-max(1023) {
+            background-image: url(../../../assets/images/footer/icon-mail-s.svg)
+          }
         }
       }
     }

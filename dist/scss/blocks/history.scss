@@ -5,6 +5,18 @@
     width: fit-content;
     transform: rotate(-4deg);
     margin-bottom: 74px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 58px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 46px;
+    }
+
+    @include rwd-max(767) {
+      margin-bottom: 38px;
+    }
   }
   
   &__subtitle {
@@ -14,10 +26,67 @@
     transform: rotate(4deg);
     width: fit-content;
     margin: 0 auto 36px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 28px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 24px;
+    }
+
+    @include rwd-max(1023) {
+      margin-bottom: 96px;
+    }
+
+    @include rwd-max(374) {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__scribble {
+    // position: relative;
+    &::before {
+      content: "";
+      background-image: url(../../../assets/images/utils/scribble-pencil.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 54%;
+      height: 47%;
+      position: absolute;
+      left: 25%;
+      top: -28%;
+      transform: rotate(15deg);
+
+      @include rwd-max(1023) {
+        width: 100%;
+        height: auto;
+        padding-bottom: 35%;
+        left: 0;
+        top: -25%;
+
+        @include rwd-max(767) {
+          top: -20%;
+        }
+      }
+    }
   }
 
   &__wide-card {
     margin-bottom: 100px;
+
+    @include rwd-max(1439) {
+      margin-bottom: 80px;
+    }
+
+    @include rwd-max(1279) {
+      margin-bottom: 64px;
+    }
+
+    @include rwd-max(767) {
+      margin-bottom: 48px;
+    }
   }
 
   &__wide-card--arrow-caption {
@@ -33,6 +102,14 @@
 
     @include rwd-max(1279) {
       margin-bottom: 160px;
+    }
+
+    @include rwd-max(1023) {
+      margin-bottom: 78px;
+    }
+
+    @include rwd-max(767) {
+      margin-bottom: 64px;
     }
   }
 }

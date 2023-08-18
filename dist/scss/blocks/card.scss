@@ -12,6 +12,23 @@
     @include rwd-max(1279) {
       width: half-grid-w(100vw, $container-768, 32px);
     }
+
+    @include rwd-max(1023) {
+      max-width: unset;
+      width: w-calc(100vw, $container-768, 1);
+    }
+
+    @include rwd-max(767) {
+      width: w-calc(100vw, $container-480, 1);
+    }
+
+    @include rwd-max(479) {
+      width: w-calc(100vw, $container-375, 1);
+    }
+
+    @include rwd-max(374) {
+      width: w-calc(100vw, $container-320, 1);
+    }
   }
 
   &__pseudo-holder {
@@ -98,6 +115,18 @@
       @include rwd-max(1279) {
         margin-bottom: 8px;
       }
+
+      @include rwd-max(1023) {
+        margin-bottom: 16px;
+      }
+
+      @include rwd-max(767) {
+        margin-bottom: 12px;
+      }
+
+      @include rwd-max(479) {
+        margin-bottom: 8px;
+      }
     }
 
     &-timing {
@@ -113,6 +142,19 @@
         gap: 8px;
         margin-bottom: 8px;
       }
+
+      @include rwd-max(1023) {
+        gap: 32px;
+        margin-bottom: 12px;
+      }
+
+      @include rwd-max(767) {
+        margin-bottom: 8px;
+      }
+
+      @include rwd-max(374) {
+        margin-bottom: 4px;
+      }
     }
 
     &-details {
@@ -124,6 +166,10 @@
         flex-direction: column;
         gap: 8px;
         overflow: hidden;
+
+        @include rwd-max(374) {
+          gap: 4px;
+        }
       }
     }
 
@@ -134,9 +180,7 @@
   }
 
   &--v1 {
-    // transform: translate(2%, 6%);
     .card {
-
       &__content {
         padding: 16% 0 0 4%;
         height: half-grid-h(100vw, $container-1600, 32px, 1.07);
@@ -149,9 +193,24 @@
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 1.07);
         }
-        // background-image: url(../../../assets/images/card/torn-paper-edges.png);
-        // background-repeat: no-repeat;
-        // background-size: cover;
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          height: h-calc(100vw, $container-768, 1, 1);
+          padding-top: 10%;
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1.192);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1.192);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1.192);
+        }
       }
 
       &__pseudo-holder {
@@ -190,6 +249,22 @@
           @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
         }
 
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.53, 0.653);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.53, 0.653);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.53, 0.653);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.53, 0.653);
+        }
+
         &-wrapper {
           &::before {
             width: 8%;
@@ -206,6 +281,15 @@
             bottom: -5%;
             left: 2%;
             transform: rotate(-40deg);
+
+            @include rwd-max(1023) {
+              bottom: unset;
+              top: 100%;
+              left: 0;
+              width: 14%;
+              padding-bottom: 33%;
+              transform: rotate(-45deg);
+            }
           }
         }
       }
@@ -215,22 +299,30 @@
         width: 82%;
         height: 50%;
         transform: rotate(-7.223deg);
-        // left: 6%;
-        // bottom: -70%;
         left: 8%;
         bottom: 8%;
 
+        @include rwd-max(1023) {
+          width: 100%;
+          height: 62%;
+          bottom: 5%;
+          left: 0%;
+        }
+
+        @include rwd-max(767) {
+          bottom: 12%;
+        }
+
         &-content {
-          // max-height: h-calc(100vw, $container-1600, 0.4, 0.468);
           max-height: 60%;
           padding-left: 10%;
           position: relative;
           top: 14%;
           transform: rotate(5deg);
 
-          // @include rwd-min($container-breakpoint) {
-          //   max-height: h-calc(1600px, 0px, 0.4, 0.4);
-          // }
+          @include rwd-max(374) {
+            max-height: 64%;
+          }
         }
 
         &-details-wrapper {
@@ -249,9 +341,7 @@
   }
 
   &--v2 {
-
     .card {
-
       &__content {
         height: half-grid-h(100vw, $container-1600, 32px, 0.965);
         max-height: half-grid-h(1600px, 0px, 32px, 0.965);
@@ -264,6 +354,24 @@
 
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 0.965);
+        }
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          padding-left: 14.5%;
+          height: h-calc(100vw, $container-768, 1, 1);
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1);
         }
       }
 
@@ -293,6 +401,22 @@
           @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
         }
 
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.58, 0.651);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.58, 0.651);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.58, 0.651);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.58, 0.651);
+        }
+
         &-wrapper {
           &::before {
             width: 8%;
@@ -320,19 +444,31 @@
         right: 0;
         bottom: 0;
 
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v2-bg-mobile.png);
+          right: 2%;
+          width: 76.5%;
+          height: 64%;
+        }
+
         &-content {
           position: relative;
           top: 14%;
           padding-left: 7%;
           transform: rotate(-1.927deg);
           max-height: 68%;
+
+          @include rwd-max(1023) {
+            top: 13%;
+            max-height: 81%;
+          }
         }
 
-        &-title, &-details-wrapper {
+        &-title {
           max-width: 75%;
         }
 
-        &-about {
+        &-about, &-details-wrapper {
           max-width: 95%;
         }
       }
@@ -340,13 +476,14 @@
   }
 
   &--v3 {
-
     .card {
       &__content {
         display: flex;
         flex-direction: column;
         height: half-grid-h(100vw, $container-1600, 32px, 1);
         max-height: half-grid-h($content-w-max, 0px, 32px, 1);
+        padding-left: 4%;
+        padding-top: 8%;
 
         @include rwd-max(1439) {
           height: half-grid-h(100vw, $container-1280, 32px, 1);
@@ -355,14 +492,27 @@
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 1);
         }
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          padding-top: 4%;
+          height: h-calc(100vw, $container-768, 1, 1.12);
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1.12);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1.12);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1.12);
+        }
       }
 
       &__pseudo-holder {
-        width: 81%;
-        height: 53%;
-        margin-left: 4%;
-        margin-top: 8%;
-
         &::before {
           display: block;
           background-image: url(../../../assets/images/card/bg-red.png);
@@ -371,13 +521,44 @@
           top: 8.5%;
           left: -5%;
           z-index: 0;
+
+          @include rwd-max(1023) {
+            width: 100%;
+            padding-bottom: 63%;
+            top: 4%;
+          }
         }
       }
 
       &__img {
-        width: inherit;
-        height: inherit;
+        @include h-w-calc(100vw, $container-1600, 0.4, 0.65);
+        max-width: calc($content-w-max * .4);
+        max-height: calc($content-w-max * .4 * .65);
         transform: rotate(6.45deg);
+
+        @include rwd-max(1439) {
+          @include h-w-calc(100vw, $container-1280, 0.4, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include h-w-calc(100vw, $container-768, 0.4, 0.65);
+        }
+
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.59, 0.65);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.59, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375,  0.59, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.59, 0.65);
+        }
 
         &-wrapper {
           width: 100%;
@@ -389,6 +570,11 @@
             bottom: 0;
             right: -2%;
             transform: rotate(45deg);
+
+            @include rwd-max(1023) {
+              bottom: -26%;
+              right: 5%;
+            }
           }
 
           &::after {
@@ -404,10 +590,16 @@
 
       &__desc {
         background-image: url(../../../assets/images/card/v3-bg.png);
-        width: 82%;
-        height: 62%;
-        left: 16.5%;
+        width: 79%;
+        height: 61.5%;
+        right: 0;
         bottom: 0;
+
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v3-bg-mobile.png);
+          width: 100%;
+          height: 74%;
+        }
 
         &-content {
           position: relative;
@@ -429,9 +621,7 @@
   }
 
   &--v4 {
-
     .card {
-
       &__content {
         display: flex;
         align-items: flex-end;
@@ -448,11 +638,22 @@
           height: half-grid-h(100vw, $container-768, 32px, 0.893);
         }
 
-        // @include rwd-max(1279) {
-        //   height: h-calc(100vw, $container-768, 1, 0.893);
-        //   max-width: none;
-        //   max-height: none;
-        // }
+        @include rwd-max(1023) {
+          max-height: unset;
+          height: h-calc(100vw, $container-768, 1, 1);
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1);
+        }
       }
 
       &__pseudo-holder::before {
@@ -479,9 +680,21 @@
           @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
         }
 
-        // @include rwd-max(1279) {
-        //   @include event-img-h-w-calc(100vw, $container-768, 0.8, 0.65);
-        // }
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.596, 0.654);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.596, 0.654);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.596, 0.654);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.596, 0.654);
+        }
 
         &-wrapper {
           &::before {
@@ -510,11 +723,21 @@
         top: 0;
         right: 0;
 
+        @include rwd-max(1023) {
+          width: 100%;
+          height: 58%;
+          top: 10%;
+        }
+
         &-content {
           max-height: 68%;
           position: relative;
           top: 16%;
           padding-left: 8%;
+
+          @include rwd-max(1023) {
+            max-height: 75%;
+          }
         }
 
         &-title, &-details-wrapper{
@@ -523,6 +746,10 @@
 
         &-about {
           max-width: 95%;
+
+          @include rwd-max(1023) {
+            max-width: 96%;
+          }
         }
       }
     }
@@ -545,10 +772,23 @@
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 0.923);
         }
-      }
-      &__pseudo-holder {
-        // width: 80%;
-        // height: 57%;
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          height: h-calc(100vw, $container-768, 1, 1);
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1);
+        }
       }
 
       &__img {
@@ -564,8 +804,22 @@
         @include rwd-max(1279) {
           @include event-img-h-w-calc(100vw, $container-768, 0.4, 0.65);
         }
-        // width: 100%;
-        // height: 100%;
+
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.69, 0.653);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.69, 0.653);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.69, 0.653);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.69, 0.653);
+        }
 
         &-wrapper {
           &::before {
@@ -574,6 +828,13 @@
             top: 4%;
             left: 24%;
             transform: rotate(-30.5deg);
+
+            @include rwd-max(1023) {
+              width: 8%;
+              padding-bottom: 20.5%;
+              top: -6%;
+              left: 4%;
+            }
           }
 
           &::after {
@@ -583,6 +844,13 @@
             right: -1%;
             top: 2%;
             transform: rotate(-45deg);
+
+            @include rwd-max(1023) {
+              right: -2%;
+              top: -2%;
+              width: 10%;
+              padding-bottom: 24%;
+            }
           }
         }
       }
@@ -594,11 +862,21 @@
         right: 0;
         top: 0;
 
+        @include rwd-max(1023) {
+          top: 2%;
+          width: 100%;
+          height: 58%;
+        }
+
         &-content {
           position: relative;
           top: 16%;
           padding-left: 7.5%;
           max-height: 68%;
+
+          @include rwd-max(1023) {
+            max-height: 75%;
+          }
         }
 
         &-title, &-details-wrapper {
@@ -617,6 +895,8 @@
       &__content {
         display: flex;
         align-items: flex-end;
+        padding-left: 10.5%;
+        padding-bottom: 4%;
         height: half-grid-h(100vw, $container-1600, 32px, 0.993);
         max-height: half-grid-h($content-w-max, 0px, 32px, 0.993);
 
@@ -627,24 +907,56 @@
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 0.993);
         }
-        // padding-left: 2%;
-        // padding-bottom: 4%;
-      }
 
-      &__pseudo-holder {
-        width: 72.5%;
-        height: 48%;
-        margin-bottom: 4%;
-        margin-left: 10.5%;
+        @include rwd-max(1023) {
+          max-height: unset;
+          padding: 0 7% 24% 0;
+          justify-content: flex-end;
+          height: h-calc(100vw, $container-768, 1, 1.359);
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1.359);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1.359);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1.359);
+        }
       }
   
       &__img {
-        width: inherit;
-        height: inherit;
-        // @include event-img-h-w-calc(100vw, $container-1600, 0.354, 0.65);
-        // max-width: calc($content-w-max *.354);
-        // max-height: calc($content-w-max *.354 *.65);
+        @include event-img-h-w-calc(100vw, $container-1600, 0.354, 0.65);
+        max-width: calc($content-w-max *.354);
+        max-height: calc($content-w-max *.354 *.65);
         transform: rotate(-6deg);
+
+        @include rwd-max(1439) {
+          @include event-img-h-w-calc(100vw, $container-1280, 0.354, 0.65);
+        }
+
+        @include rwd-max(1279) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.354, 0.65);
+        }
+
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.638, 0.65);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.638, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.638, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.638, 0.65);
+        }
 
         &-wrapper {
           width: 100%;
@@ -656,6 +968,11 @@
             right: 3%;
             top: 6%;
             transform: rotate(120deg);
+
+            @include rwd-max(1023) {
+              top: 30%;
+              right: -2%;
+            }
           }
 
           &::after {
@@ -672,20 +989,39 @@
         left: 0;
         z-index: -1;
 
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v6-bg-mobile.png);
+          height: 77%;
+        }
+
         &-content {
           position: relative;
           top: 16%;
           left: 19%;
           max-height: 45%;
           transform: rotate(-1.33deg);
+
+          @include rwd-max(1023) {
+            transform: rotate(-2deg);
+            padding-left: 8%;
+            left: unset;
+          }
         }
 
         &-title {
           max-width: 70%;
+
+          @include rwd-max(1023) {
+            max-width: 95%;
+          }
         }
 
         &-details-wrapper, &-about {
           max-width: 75%;
+
+          @include rwd-max(1023) {
+            max-width: 95%;
+          }
         }
       }
     }
@@ -706,6 +1042,25 @@
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 0.958);
         }
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          height: h-calc(100vw, $container-768, 1, 1.1);
+          padding-left: 6%;
+          padding-top: 8%;
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1.1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1.1);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1.1);
+        }
       }
 
       &__pseudo-holder::after {
@@ -716,6 +1071,12 @@
         right: 2%;
         top: -22%;
         transform: rotate(-45deg);
+
+        @include rwd-max(1023) {
+          width: 8.4%;
+          padding-bottom: 20%;
+          top: -17%;
+        }
       }
 
       &__img {
@@ -730,6 +1091,22 @@
 
         @include rwd-max(1279) {
           @include event-img-h-w-calc(100vw, $container-768, 0.35, 0.65);
+        }
+
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.74, 0.65);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.74, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.74, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.74, 0.65);
         }
 
         &-wrapper {
@@ -749,6 +1126,12 @@
             bottom: 10%;
             right: -2%;
             transform: rotate(30deg);
+
+            @include rwd-max(1023) {
+              transform: rotate(45deg);
+              bottom: 0;
+              right: -4%;
+            }
           }
         }
       }
@@ -760,12 +1143,21 @@
         left: 0;
         bottom: 0;
 
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v7-bg-mobile.png);
+          height: 74%;
+        }
+
         &-content {
           position: relative;
           top: 22%;
           padding-left: 5%;
           max-height: 52%;
           transform: rotate(-1.3deg);
+
+          @include rwd-max(1023) {
+            max-height: 54%;
+          }
         }
 
         &-title {
@@ -781,7 +1173,6 @@
 
   &--v8 {
     .card {
-
       &__content {
         height: half-grid-h(100vw, $container-1600, 32px, 1.022);
         max-height: half-grid-h(1600px, 0px, 32px, 1.022);
@@ -794,6 +1185,26 @@
 
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 1.022);
+        }
+
+        @include rwd-max(1023) {
+          max-height: unset;
+          height: h-calc(100vw, $container-768, 1, 1.1);
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+          padding: 4% 2% 0 0;
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1.1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1.1);
+        }
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1.1);
         }
       }
 
@@ -811,6 +1222,22 @@
           @include event-img-h-w-calc(100vw, $container-768, 0.42, 0.65);
         }
 
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.651, 0.65);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.651, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.651, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.651, 0.65);
+        }
+
         &-wrapper {
           &::before {
             width: 6%;
@@ -818,6 +1245,11 @@
             bottom: 10%;
             left: 4%;
             transform: rotate(-75deg);
+
+            @include rwd-max(1023) {
+              bottom: 5%;
+              left: 2%;
+            }
           }
 
           &::after {
@@ -827,6 +1259,10 @@
             right: 4%;
             bottom: 5%;
             transform: rotate(-45deg);
+
+            @include rwd-max(1023) {
+              display: none;
+            }
           }
         }
       }
@@ -839,12 +1275,23 @@
         bottom: 6%;
         transform: rotate(-7.22deg);
 
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v8-bg-mobile.png);
+          width: 95%;
+          height: 73.5%;
+          bottom: 0;
+        }
+
         &-content {
           position: relative;
           top: 19%;
           padding-left: 12%;
           transform: rotate(5deg);
           max-height: 60%;
+
+          @include rwd-max(1023) {
+            top: 16%;
+          }
         }
 
         &-title {
@@ -864,7 +1311,6 @@
 
   &--v9 {
     .card {
-
       &__content {
         padding: 6% 0 0 4%;
         height: half-grid-h(100vw, $container-1600, 32px, 0.992);
@@ -876,6 +1322,23 @@
 
         @include rwd-max(1279) {
           height: half-grid-h(100vw, $container-768, 32px, 0.992);
+        }
+
+        @include rwd-max(1023) {
+          height: h-calc(100vw, $container-768, 1, 1);
+          padding: 6% 0 0 12%;
+        }
+
+        @include rwd-max(767) {
+          height: h-calc(100vw, $container-480, 1, 1);
+        }
+
+        @include rwd-max(479) {
+          height: h-calc(100vw, $container-375, 1, 1);
+        }
+
+        @include rwd-max(374) {
+          height: h-calc(100vw, $container-320, 1, 1);
         }
       }
 
@@ -892,6 +1355,22 @@
           @include event-img-h-w-calc(100vw, $container-768, 0.35, 0.65);
         }
 
+        @include rwd-max(1023) {
+          @include event-img-h-w-calc(100vw, $container-768, 0.586, 0.65);
+        }
+
+        @include rwd-max(767) {
+          @include event-img-h-w-calc(100vw, $container-480, 0.586, 0.65);
+        }
+
+        @include rwd-max(479) {
+          @include event-img-h-w-calc(100vw, $container-375, 0.586, 0.65);
+        }
+
+        @include rwd-max(374) {
+          @include event-img-h-w-calc(100vw, $container-320, 0.586, 0.65);
+        }
+
         &-wrapper {
           &::before {
             width: 7%;
@@ -899,6 +1378,10 @@
             right: -1%;
             bottom: -2%;
             transform: rotate(75deg);
+
+            @include rwd-max(1023) {
+              display: none;
+            }
           }
 
           &::after {
@@ -908,6 +1391,14 @@
             left: -6%;
             top: 30%;
             transform: rotate(-45deg);
+
+            @include rwd-max(1023) {
+              top: unset;
+              left: -11%;
+              bottom: 2%;
+              width: 14%;
+              padding-bottom: 33%;
+            }
           }
         }
       }
@@ -919,11 +1410,23 @@
         left: 0;
         bottom: 12%;
 
+        @include rwd-max(1023) {
+          background-image: url(../../../assets/images/card/v9-bg-mobile.png);
+          width: 92%;
+          height: 74%;
+          left: 6%;
+          bottom: 0;
+        }
+
         &-content {
           position: relative;
           top: 31%;
           padding-left: 3.5%;
           max-height: 56%;
+
+          @include rwd-max(1023) {
+            max-height: 64%;
+          }
         }
 
         &-title {

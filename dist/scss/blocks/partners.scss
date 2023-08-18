@@ -4,6 +4,8 @@
     color: $black-base;
     width: fit-content;
     margin: 0 auto 64px;
+    font-size: 50px;
+    text-align: center;
 
     @include rwd-max(1439) {
       margin-bottom: 48px;
@@ -11,6 +13,10 @@
 
     @include rwd-max(1280) {
       margin-bottom: 24px;
+    }
+    
+    @include rwd-max(479) {
+      font-size: 38px;
     }
   }
 
@@ -27,6 +33,16 @@
     justify-content: center;
     width: 214px;
     height: 214px;
+
+    @include rwd-max(1023) {
+      width: 113px;
+      height: 113px;
+    }
+
+    @include rwd-max(479) {
+      width: 80px;
+      height: 80px;
+    }
 
     &-logo {
       max-width: 100%;

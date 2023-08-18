@@ -13,79 +13,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_css_bundle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/css/bundle */ "./node_modules/swiper/swiper-bundle.min.css");
 
 
-var swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-event-1', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true
-  },
-  spaceBetween: 32
+var header = document.querySelector(".header");
+var headerHeight = header.offsetHeight;
+var lastScroll = 0;
+window.addEventListener("scroll", function () {
+  var currentScroll = window.scrollY;
+  if (currentScroll > lastScroll && !header.classList.contains("header--scroll-down") && currentScroll > headerHeight) {
+    header.classList.add("header--scroll-down");
+  } else if (currentScroll < lastScroll && header.classList.contains("header--scroll-down")) {
+    header.classList.remove("header--scroll-down");
+  }
+  lastScroll = currentScroll;
 });
-var swiper2 = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-event-2', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true
-  },
-  spaceBetween: 32
+var navLinks = document.querySelectorAll(".nav__link");
+var nav = document.querySelector(".header__nav");
+navLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    nav.classList.remove("header__nav--active");
+  });
 });
-var swiper3 = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-event-3', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true
-  },
-  spaceBetween: 32
-});
-var swiper4 = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-event-4', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true
-  },
-  spaceBetween: 32
+var programSwipers = document.querySelectorAll(".program__swiper");
+programSwipers.forEach(function (swiper) {
+  swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](swiper, {
+    allowTouchMove: true,
+    slidesPerView: 1,
+    breakpoints: {
+      1024: {
+        slidesPerView: 2
+      }
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      bulletClass: 'bullet-custom',
+      bulletActiveClass: 'bullet-custom--active',
+      clickable: true,
+      dynamicBullets: true
+    },
+    spaceBetween: 32,
+    keyboard: {
+      enabled: true
+    }
+  });
 });
 var lectors = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.lectors__swiper', {
-  slidesPerView: 3,
+  observer: true,
+  slidesPerView: 1.3,
+  slidesPerGroup: 1,
   spaceBetween: 32,
-  slidesPerGroup: 3,
+  slidesOffsetAfter: 16,
+  longSwipes: false,
   pagination: {
     el: '.swiper-pagination',
     bulletClass: 'bullet-custom',
     bulletActiveClass: 'bullet-custom--active',
-    clickable: true
+    clickable: true,
+    dynamicBullets: true
+  },
+  keyboard: {
+    enabled: true
+  },
+  breakpoints: {
+    375: {
+      slidesOffsetAfter: 20,
+      slidesPerView: 1.3,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: true
+      }
+    },
+    480: {
+      slidesOffsetAfter: 28,
+      slidesPerView: 1.3,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: true
+      }
+    },
+    768: {
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: false
+      },
+      slidesOffsetAfter: 0
+    },
+    1024: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      pagination: {
+        dynamicBullets: false
+      },
+      slidesOffsetAfter: 0
+    }
   }
 });
 document.addEventListener("DOMContentLoaded", function () {

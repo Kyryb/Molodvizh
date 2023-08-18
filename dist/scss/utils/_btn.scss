@@ -20,8 +20,14 @@
     padding: 18px 48px;
   }
 
-  @include rwd-max(1279) {
+  @include rwd-range(1279, 768) {
     padding: 14px 36px;
+    font-size: 18px;
+  }
+
+  @include rwd-max(767) {
+    max-width: none;
+    width: 100%;
     font-size: 18px;
   }
 }

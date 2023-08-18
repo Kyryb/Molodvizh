@@ -10,11 +10,27 @@
     background-position: bottom;
   }
 
+  @include rwd-max(1439) {
+    padding-top: 180px;
+  }
+
+  @include rwd-max(767) {
+    max-height: 100vh;
+    height: 584px;
+    padding: 124px 0;
+  }
+
+  @include rwd-max(479) {
+    background-image: url(../../../assets/images/header/nav-bg-mobile.png);
+    padding: 78px 0 216px;
+  }
+
   &__list {
     list-style-type: none;
     display: flex;
     max-width: $content-w-max;
     padding: 0 calc(2 * $container-1600);
+    margin: 0;
     justify-content: space-between;
     align-items: center;
 
@@ -27,7 +43,14 @@
     }
 
     @include rwd-max(1279) {
-      padding: 0 calc(2 * $container-1280);
+      padding: 0 calc(2 * $container-768);
+    }
+
+    @include rwd-max(767) {
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: unset;
     }
   }
 
@@ -36,5 +59,10 @@
     @extend %h4-font-styles;
     color: $white-base;
     text-decoration: none;
+
+    @include rwd-max(767) {
+      font-size: 38px;
+      padding: 0 20px 12px;
+    }
   }
 }

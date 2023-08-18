@@ -12,6 +12,10 @@
   @include rwd-max(1279) {
     font-size: 68px;
   }
+
+  @include rwd-max(767) {
+    font-size: 56px;
+  }
 }
 
 %h2-font-styles {
@@ -27,6 +31,18 @@
 
   @include rwd-max(1279) {
     font-size: 58px;
+  }
+
+  @include rwd-max(1023) {
+    font-size: 48px;
+  }
+
+  @include rwd-max(767) {
+    font-size: 38px;
+  }
+
+  @include rwd-max(374) {
+    font-size: 28px;
   }
 }
 
@@ -60,6 +76,14 @@
   @include rwd-max(1279) {
     font-size: 32px;
   }
+
+  @include rwd-max(767) {
+    font-size: 28px;
+  }
+
+  @include rwd-max(479) {
+    font-size: 20px;
+  }
 }
 
 %h5-font-styles {
@@ -75,6 +99,22 @@
 
   @include rwd-max(1279) {
     font-size: 22px;
+  }
+
+  @include rwd-max(1023) {
+    font-size: 32px;
+  }
+
+  @include rwd-max(767) {
+    font-size: 26px;
+  }
+
+  @include rwd-max(479) {
+    font-size: 20px;
+  }
+
+  @include rwd-max(374) {
+    font-size: 18px;
   }
 }
 
@@ -92,6 +132,22 @@
   @include rwd-max(1279) {
     font-size: 16px;
   }
+
+  @include rwd-max(1023) {
+    font-size: 24px;
+  }
+
+  @include rwd-max(767) {
+    font-size: 20px;
+  }
+
+  @include rwd-max(479) {
+    font-size: 18px;
+  }
+
+  @include rwd-max(374) {
+    font-size: 16px;
+  }
 }
 
 %body1-font-styles {
@@ -101,12 +157,24 @@
     font-size: 20px;
   }
 
-  @include rwd-max(1439) {
+  @include rwd-max(1279) {
+    font-size: 16px;
+  }
+
+  @include rwd-max(1023) {
     font-size: 20px;
   }
 
-  @include rwd-max(1279) {
-    font-size: 16px;
+  @include rwd-max(767) {
+    font-size: 18px;
+  }
+
+  @include rwd-max(479) {
+    font-size: 14px;
+  }
+
+  @include rwd-max(374) {
+    font-size: 12px;
   }
 }
 
@@ -123,6 +191,22 @@
 
   @include rwd-max(1279) {
     font-size: 10px;
+  }
+
+  @include rwd-max(1023) {
+    font-size: 16px;
+  }
+
+  @include rwd-max(767) {
+    font-size: 12px;
+  }
+
+  @include rwd-max(479) {
+    font-size: 10px;
+  }
+
+  @include rwd-max(374) {
+    font-size: 9px;
   }
 }
 

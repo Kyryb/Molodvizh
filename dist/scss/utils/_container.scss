@@ -13,4 +13,12 @@
   @include rwd-max(1279) {
     margin: 0 $container-768;
   }
+
+  @include rwd-max(767) {
+    margin: 0 $container-480;
+  }
+
+  @include rwd-max(479) {
+    margin: 0 $container-375;
+  }
 }

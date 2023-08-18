@@ -1,83 +1,107 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
-const swiper = new Swiper('.swiper-event-1', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true,
-  },
-  spaceBetween: 32,
+
+const header = document.querySelector(".header");
+const headerHeight = header.offsetHeight;
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+  if (currentScroll > lastScroll && !header.classList.contains("header--scroll-down") && currentScroll > headerHeight) {
+    header.classList.add("header--scroll-down");
+  } else if (
+    currentScroll < lastScroll &&
+    header.classList.contains("header--scroll-down")
+  ) {
+    header.classList.remove("header--scroll-down");
+  }
+  lastScroll = currentScroll;
 });
 
-const swiper2 = new Swiper('.swiper-event-2', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true,
-  },
-  spaceBetween: 32,
-});
+const navLinks = document.querySelectorAll(".nav__link");
+const nav = document.querySelector(".header__nav")
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("header__nav--active");
+  })
+})
 
-const swiper3 = new Swiper('.swiper-event-3', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true,
-  },
-  spaceBetween: 32,
-});
+const programSwipers = document.querySelectorAll(".program__swiper");
+programSwipers.forEach((swiper) => {
+  swiper = new Swiper(swiper, {
+    allowTouchMove: true,
+    slidesPerView: 1,
+    breakpoints: {
+      1024: {
+        slidesPerView: 2,
+      }
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      bulletClass: 'bullet-custom',
+      bulletActiveClass: 'bullet-custom--active',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    spaceBetween: 32,
+    keyboard: {
+      enabled: true,
+    },
+  });
+})
 
-const swiper4 = new Swiper('.swiper-event-4', {
-  allowTouchMove: true,
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  grid: {
-    rows: 2,
-    fill: 'row',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'bullet-custom',
-    bulletActiveClass: 'bullet-custom--active',
-    clickable: true,
-  },
-  spaceBetween: 32,
-});
 
 const lectors = new Swiper('.lectors__swiper', {
-  slidesPerView: 3,
+  observer: true,
+  slidesPerView: 1.3,
+  slidesPerGroup: 1,
   spaceBetween: 32,
-  slidesPerGroup: 3,
+  slidesOffsetAfter: 16,
+  longSwipes: false,
   pagination: {
     el: '.swiper-pagination',
     bulletClass: 'bullet-custom',
     bulletActiveClass: 'bullet-custom--active',
     clickable: true,
+    dynamicBullets: true,
+  },
+  keyboard: {
+    enabled: true,
+  },
+  breakpoints: {
+    375: {
+      slidesOffsetAfter: 20,
+      slidesPerView: 1.3,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: true,
+      }
+    },
+    480: {
+      slidesOffsetAfter: 28,
+      slidesPerView: 1.3,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: true,
+      }
+    },
+    768: {
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      pagination: {
+        dynamicBullets: false,
+      },
+      slidesOffsetAfter: 0,
+    },
+    1024: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      pagination: {
+        dynamicBullets: false,
+      },
+      slidesOffsetAfter: 0,
+    }
   },
 })
 

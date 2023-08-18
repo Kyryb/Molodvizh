@@ -1,7 +1,16 @@
-.header {
+  .header {
   position: fixed;
   z-index: 10;
   width: 100%;
+  transition: transform 0.3s ease-in-out;
+
+  &--scroll-down {
+    transform: translateY(-100%);
+
+    .header__nav {
+      transform: translateY(-100%);
+    }
+  }
 
   &__content {
     display: flex;
@@ -13,20 +22,38 @@
     }
 
     &-wrapper {
-      height: 174px;
+      height: 125px;
       width: 100%;
-      padding: 12px $container-1600 0;
+      padding: 8px $container-1600 0;
       background-image: url(../../../assets/images/header/bg.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: bottom;
 
       @include rwd-max(1439) {
-        padding: 12px $container-1280 0;
+        padding: 8px $container-1280 0;
       }
 
       @include rwd-max(1279) {
-        padding: 12px $container-768 0;
+        padding: 8px $container-768 0;
+      }
+
+      @include rwd-max(1023) {
+        height: 148px;
+        padding: 24px $container-768 0;
+      }
+
+      @include rwd-max(767) {
+        padding: 24px $container-480 0;
+      }
+
+      @include rwd-max(479) {
+        background-image: url(../../../assets/images/header/bg-mobile.png);
+        padding: 24px $container-375 0;
+      }
+
+      @include rwd-max(374) {
+        padding: 24px $container-320 0;
       }
     }
   }
@@ -35,22 +62,51 @@
     display: flex;
     gap: 56px;
     align-items: center;
+
+    @include rwd-max(767) {
+      gap: 24px;
+    }
+
+    @include rwd-max(479) {
+      gap: 12px;
+    }
   }
 
   &__controls {
     display: flex;
     align-items: center;
     gap: 24px;
+
+    @include rwd-range(1023, 780) {
+      gap: 56px;
+    }
+
+    @include rwd-max(479) {
+      gap: 12px;
+    }
   }
 
   &__language-controls {
     display: flex;
     gap: 16px;
+
+    @include rwd-max(479) {
+      gap: 8px;
+    }
+  }
+  
+  &__language, &__tg {
+    font: 400 18px/150% $secondary-ff;
+
+    @include rwd-max(479) {
+      font-size: 16px;
+      padding: 4px;
+    }
   }
 
   &__language {
-    @extend %body1-font-styles;
     color: $white-base;
+    text-decoration: none;
     transition: all 0.3s ease-in-out;
 
     &--active {
@@ -59,11 +115,14 @@
     }
   }
 
-  &__tg {
-    @extend %body1-font-styles;
+  &__tg { 
     color: $light-blue;
     text-decoration: none;
-    padding: 16px 44px 12px;
+    padding: 0 74px;
+
+    @include rwd-max(1023) {
+      display: none;
+    }
   }
 
   &__nav {
@@ -72,20 +131,29 @@
     right: 10px;
     left: 10px;
     z-index: -1;
-    transform: translateY(-101%);
+    transform: translateY(-100%);
     transition: 0.3s ease-in-out transform;
 
     &--active {
       transform: translateY(0);
     }
 
-    @include rwd-max(1599) {
+    @include rwd-max(1439) {
+      top: 0;
       left: 0;
       right: 0;
     }
 
+    @include rwd-max(767) {
+      top: 106px;
+    }
+
+    @include rwd-range(479, 375) {
+      top: 86px;
+    }
+
     @include rwd-min($container-breakpoint) {
-      top: 94px;
+      top: 28px;
     }
   }
 }
